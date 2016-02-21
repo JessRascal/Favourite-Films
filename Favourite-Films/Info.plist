@@ -30,6 +30,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -42,6 +44,20 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Catamaran-Black.ttf</string>
+		<string>Catamaran-Bold.ttf</string>
+		<string>Catamaran-ExtraBold.ttf</string>
+		<string>Catamaran-ExtraLight.ttf</string>
+		<string>Catamaran-Light.ttf</string>
+		<string>Catamaran-Medium.ttf</string>
+		<string>Catamaran-Regular.ttf</string>
+		<string>Catamaran-SemiBold.ttf</string>
+		<string>Catamaran-Thin.ttf</string>
 	</array>
 </dict>
 </plist>

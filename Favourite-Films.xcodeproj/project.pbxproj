@@ -8,22 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		C8AAB2FC1C789F1E00376ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB2FB1C789F1E00376ED0 /* AppDelegate.swift */; };
-		C8AAB2FE1C789F1E00376ED0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB2FD1C789F1E00376ED0 /* ViewController.swift */; };
+		C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */; };
 		C8AAB3011C789F1E00376ED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */; };
 		C8AAB3041C789F1E00376ED0 /* Favourite_Films.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB3021C789F1E00376ED0 /* Favourite_Films.xcdatamodeld */; };
 		C8AAB3061C789F1E00376ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB3051C789F1E00376ED0 /* Assets.xcassets */; };
 		C8AAB3091C789F1E00376ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */; };
+		C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2C2BB1C791E100030F279 /* DetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C84B66571C79377A00FB25ED /* Catamaran-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Black.ttf"; sourceTree = "<group>"; };
+		C84B66581C79377A00FB25ED /* Catamaran-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Bold.ttf"; sourceTree = "<group>"; };
+		C84B66591C79377A00FB25ED /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C84B665A1C79377A00FB25ED /* Catamaran-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C84B665B1C79377A00FB25ED /* Catamaran-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Light.ttf"; sourceTree = "<group>"; };
+		C84B665C1C79377A00FB25ED /* Catamaran-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Medium.ttf"; sourceTree = "<group>"; };
+		C84B665D1C79377A00FB25ED /* Catamaran-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Regular.ttf"; sourceTree = "<group>"; };
+		C84B665E1C79377A00FB25ED /* Catamaran-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-SemiBold.ttf"; sourceTree = "<group>"; };
+		C84B665F1C79377A00FB25ED /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
 		C8AAB2F81C789F1E00376ED0 /* Favourite-Films.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favourite-Films.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AAB2FB1C789F1E00376ED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C8AAB2FD1C789F1E00376ED0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		C8AAB3001C789F1E00376ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8AAB3031C789F1E00376ED0 /* Favourite_Films.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favourite_Films.xcdatamodel; sourceTree = "<group>"; };
 		C8AAB3051C789F1E00376ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8AAB3081C789F1E00376ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8AAB30A1C789F1E00376ED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8C2C2BB1C791E100030F279 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +48,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C84B66551C7934FD00FB25ED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C84B66561C79351900FB25ED /* Catamaran */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		C84B66561C79351900FB25ED /* Catamaran */ = {
+			isa = PBXGroup;
+			children = (
+				C84B66571C79377A00FB25ED /* Catamaran-Black.ttf */,
+				C84B66581C79377A00FB25ED /* Catamaran-Bold.ttf */,
+				C84B66591C79377A00FB25ED /* Catamaran-ExtraBold.ttf */,
+				C84B665A1C79377A00FB25ED /* Catamaran-ExtraLight.ttf */,
+				C84B665B1C79377A00FB25ED /* Catamaran-Light.ttf */,
+				C84B665C1C79377A00FB25ED /* Catamaran-Medium.ttf */,
+				C84B665D1C79377A00FB25ED /* Catamaran-Regular.ttf */,
+				C84B665E1C79377A00FB25ED /* Catamaran-SemiBold.ttf */,
+				C84B665F1C79377A00FB25ED /* Catamaran-Thin.ttf */,
+			);
+			name = Catamaran;
+			sourceTree = "<group>";
+		};
 		C8AAB2EF1C789F1E00376ED0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +91,41 @@
 		C8AAB2FA1C789F1E00376ED0 /* Favourite-Films */ = {
 			isa = PBXGroup;
 			children = (
+				C8C2C2B81C7918C30030F279 /* Controller */,
+				C8C2C2B71C7918BD0030F279 /* View */,
+				C8C2C2B61C7918930030F279 /* Model */,
 				C8AAB2FB1C789F1E00376ED0 /* AppDelegate.swift */,
-				C8AAB2FD1C789F1E00376ED0 /* ViewController.swift */,
-				C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */,
 				C8AAB3051C789F1E00376ED0 /* Assets.xcassets */,
-				C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */,
 				C8AAB30A1C789F1E00376ED0 /* Info.plist */,
 				C8AAB3021C789F1E00376ED0 /* Favourite_Films.xcdatamodeld */,
 			);
 			path = "Favourite-Films";
+			sourceTree = "<group>";
+		};
+		C8C2C2B61C7918930030F279 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C8C2C2B71C7918BD0030F279 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C84B66551C7934FD00FB25ED /* Fonts */,
+				C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */,
+				C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */,
+				C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */,
+				C8C2C2BB1C791E100030F279 /* DetailVC.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C8C2C2B81C7918C30030F279 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +199,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8AAB2FE1C789F1E00376ED0 /* ViewController.swift in Sources */,
+				C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */,
+				C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */,
 				C8AAB3041C789F1E00376ED0 /* Favourite_Films.xcdatamodeld in Sources */,
 				C8AAB2FC1C789F1E00376ED0 /* AppDelegate.swift in Sources */,
 			);
@@ -290,6 +352,7 @@
 				C8AAB30F1C789F1E00376ED0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
