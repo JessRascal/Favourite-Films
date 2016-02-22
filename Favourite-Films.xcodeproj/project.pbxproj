@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C807F5071C7A648D00B44A8A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C807F5061C7A648D00B44A8A /* CustomTextField.swift */; };
+		C807F5081C7AFBD800B44A8A /* Catamaran-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B66571C79377A00FB25ED /* Catamaran-Black.ttf */; };
+		C807F5091C7AFBDC00B44A8A /* Catamaran-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B66581C79377A00FB25ED /* Catamaran-Bold.ttf */; };
+		C807F50A1C7AFBDF00B44A8A /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B66591C79377A00FB25ED /* Catamaran-ExtraBold.ttf */; };
+		C807F50B1C7AFBE200B44A8A /* Catamaran-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B665A1C79377A00FB25ED /* Catamaran-ExtraLight.ttf */; };
+		C807F50C1C7AFBE500B44A8A /* Catamaran-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B665B1C79377A00FB25ED /* Catamaran-Light.ttf */; };
+		C807F50D1C7AFBE800B44A8A /* Catamaran-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B665C1C79377A00FB25ED /* Catamaran-Medium.ttf */; };
+		C807F50E1C7AFBEB00B44A8A /* Catamaran-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B665D1C79377A00FB25ED /* Catamaran-Regular.ttf */; };
+		C807F50F1C7AFBEE00B44A8A /* Catamaran-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B665E1C79377A00FB25ED /* Catamaran-SemiBold.ttf */; };
+		C807F5101C7AFBF100B44A8A /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B665F1C79377A00FB25ED /* Catamaran-Thin.ttf */; };
 		C8AAB2FC1C789F1E00376ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB2FB1C789F1E00376ED0 /* AppDelegate.swift */; };
 		C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */; };
 		C8AAB3011C789F1E00376ED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */; };
@@ -17,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C807F5061C7A648D00B44A8A /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		C84B66571C79377A00FB25ED /* Catamaran-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Black.ttf"; sourceTree = "<group>"; };
 		C84B66581C79377A00FB25ED /* Catamaran-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Bold.ttf"; sourceTree = "<group>"; };
 		C84B66591C79377A00FB25ED /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -113,10 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				C84B66551C7934FD00FB25ED /* Fonts */,
-				C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */,
 				C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */,
 				C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */,
-				C8C2C2BB1C791E100030F279 /* DetailVC.swift */,
+				C807F5061C7A648D00B44A8A /* CustomTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -124,6 +134,8 @@
 		C8C2C2B81C7918C30030F279 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */,
+				C8C2C2BB1C791E100030F279 /* DetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -186,9 +198,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C807F50F1C7AFBEE00B44A8A /* Catamaran-SemiBold.ttf in Resources */,
+				C807F50E1C7AFBEB00B44A8A /* Catamaran-Regular.ttf in Resources */,
+				C807F5101C7AFBF100B44A8A /* Catamaran-Thin.ttf in Resources */,
 				C8AAB3091C789F1E00376ED0 /* LaunchScreen.storyboard in Resources */,
+				C807F5081C7AFBD800B44A8A /* Catamaran-Black.ttf in Resources */,
+				C807F5091C7AFBDC00B44A8A /* Catamaran-Bold.ttf in Resources */,
 				C8AAB3061C789F1E00376ED0 /* Assets.xcassets in Resources */,
+				C807F50C1C7AFBE500B44A8A /* Catamaran-Light.ttf in Resources */,
 				C8AAB3011C789F1E00376ED0 /* Main.storyboard in Resources */,
+				C807F50A1C7AFBDF00B44A8A /* Catamaran-ExtraBold.ttf in Resources */,
+				C807F50D1C7AFBE800B44A8A /* Catamaran-Medium.ttf in Resources */,
+				C807F50B1C7AFBE200B44A8A /* Catamaran-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +224,7 @@
 				C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */,
 				C8AAB3041C789F1E00376ED0 /* Favourite_Films.xcdatamodeld in Sources */,
 				C8AAB2FC1C789F1E00376ED0 /* AppDelegate.swift in Sources */,
+				C807F5071C7A648D00B44A8A /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

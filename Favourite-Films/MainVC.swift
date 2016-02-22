@@ -13,6 +13,19 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the title of the Nav Bar to be the App Logo.
+        let appLogo = UIImage(named: "FavouriteFilmsLogo")
+        let imageView = UIImageView(image: appLogo)
+        imageView.contentMode = .ScaleAspectFit
+        imageView.bounds.size.height = 30
+        navigationItem.titleView = imageView
+        navigationItem.titleView!.contentMode = .ScaleAspectFit
+        // Blank button added to the left of the Nav Bar to keep the logo centred (a bit hacky).
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem?.enabled = false
+        
+        // Set the text of the default 'Back' button (no text, just the arrow).
+        navigationItem.title = ""
     }
     
     @IBAction func loadDetailVC(sender: AnyObject!) {
@@ -23,15 +36,17 @@ class MainVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goToDetailVCEdit" {
             if let detailVC = segue.destinationViewController as? DetailVC {
-                self.navigationItem.title = "Cancel"
-                detailVC.navTitle.title = "Add a Film"
+                if let navTitle = sender as? String {
+                    detailVC.navTitle.title = navTitle
+                }
             }
         }
         
         if segue.identifier == "goToDetailVCRead" {
             if let detailVC = segue.destinationViewController as? DetailVC {
-             self.navigationItem.title = "Back"
-                detailVC.navTitle.title = "Film Details"
+                if let navTitle = sender as? String {
+                   detailVC.navTitle.title = navTitle
+                }
             }
         }
     }
