@@ -24,6 +24,9 @@
 		C8AAB3061C789F1E00376ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB3051C789F1E00376ED0 /* Assets.xcassets */; };
 		C8AAB3091C789F1E00376ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */; };
 		C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2C2BB1C791E100030F279 /* DetailVC.swift */; };
+		C8E41B211C7B7AE5009ABB0E /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B201C7B7AE5009ABB0E /* StarRating.swift */; };
+		C8E41B231C7D0625009ABB0E /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B221C7D0625009ABB0E /* CustomTextView.swift */; };
+		C8E41B251C7D0722009ABB0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B241C7D0722009ABB0E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		C8AAB3081C789F1E00376ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8AAB30A1C789F1E00376ED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8C2C2BB1C791E100030F279 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		C8E41B201C7B7AE5009ABB0E /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		C8E41B221C7D0625009ABB0E /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		C8E41B241C7D0722009ABB0E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,9 @@
 				C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */,
 				C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */,
 				C807F5061C7A648D00B44A8A /* CustomTextField.swift */,
+				C8E41B201C7B7AE5009ABB0E /* StarRating.swift */,
+				C8E41B221C7D0625009ABB0E /* CustomTextView.swift */,
+				C8E41B241C7D0722009ABB0E /* Constants.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -222,9 +231,12 @@
 			files = (
 				C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */,
 				C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */,
+				C8E41B211C7B7AE5009ABB0E /* StarRating.swift in Sources */,
 				C8AAB3041C789F1E00376ED0 /* Favourite_Films.xcdatamodeld in Sources */,
+				C8E41B231C7D0625009ABB0E /* CustomTextView.swift in Sources */,
 				C8AAB2FC1C789F1E00376ED0 /* AppDelegate.swift in Sources */,
 				C807F5071C7A648D00B44A8A /* CustomTextField.swift in Sources */,
+				C8E41B251C7D0722009ABB0E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

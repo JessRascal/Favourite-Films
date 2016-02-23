@@ -28,25 +28,25 @@ class MainVC: UIViewController {
         navigationItem.title = ""
     }
     
+    func readTest() {
+        performSegueWithIdentifier("goToDetailVCRead", sender: nil)
+    }
+    
     @IBAction func loadDetailVC(sender: AnyObject!) {
-        let navTitle = "Add a Film"
-        performSegueWithIdentifier("goToDetailVCEdit", sender: navTitle)
+        performSegueWithIdentifier("goToDetailVCEdit", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goToDetailVCEdit" {
             if let detailVC = segue.destinationViewController as? DetailVC {
-                if let navTitle = sender as? String {
-                    detailVC.navTitle.title = navTitle
-                }
+                detailVC.navTitle.title = "Add a Film"
             }
         }
         
         if segue.identifier == "goToDetailVCRead" {
             if let detailVC = segue.destinationViewController as? DetailVC {
-                if let navTitle = sender as? String {
-                   detailVC.navTitle.title = navTitle
-                }
+                detailVC.navTitle.title = "Film Details"
+                detailVC.readOnly = true
             }
         }
     }
