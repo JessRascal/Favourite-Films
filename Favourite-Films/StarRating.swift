@@ -8,6 +8,8 @@
 
 import UIKit
 
+let starButtonNotificationKey = "starButtonNotificationKey"
+
 class StarRating: UIView {
     
     // MARK: Properties
@@ -68,6 +70,8 @@ class StarRating: UIView {
     
     // MARK: Button Action
     func starButtonTapped(button: UIButton) {
+        // Post a notification when the button is tapped.
+        NSNotificationCenter.defaultCenter().postNotificationName(starButtonNotificationKey, object: self)
         rating = starButtons.indexOf(button)!+1
         updateButtonSelectedStates()
     }

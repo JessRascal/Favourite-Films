@@ -14,7 +14,7 @@ class CustomTextView: UITextView {
         super.awakeFromNib()
         textAlignment = NSTextAlignment.Justified
         layer.borderWidth = 1.0
-        layer.borderColor = appGrey.CGColor
+        layer.borderColor = UIColor.appSecondaryColor().CGColor
     }
 
 }

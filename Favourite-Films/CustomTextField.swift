@@ -18,13 +18,13 @@ class CustomTextField: UITextField {
         super.awakeFromNib()
         
         // Set the text field to just have a bottom border.
-        border.borderColor = appGrey.CGColor
+        border.borderColor = UIColor.appSecondaryColor().CGColor
         border.borderWidth = borderWidth
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
         
         // Set the placeholder text colour.
-        self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string, attributes: [NSForegroundColorAttributeName: placeholderGrey])
+        self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string, attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor()])
     }
     
     override func layoutSubviews() {
