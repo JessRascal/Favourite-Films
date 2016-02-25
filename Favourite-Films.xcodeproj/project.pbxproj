@@ -26,7 +26,10 @@
 		C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2C2BB1C791E100030F279 /* DetailVC.swift */; };
 		C8E41B211C7B7AE5009ABB0E /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B201C7B7AE5009ABB0E /* StarRating.swift */; };
 		C8E41B231C7D0625009ABB0E /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B221C7D0625009ABB0E /* CustomTextView.swift */; };
-		C8E41B251C7D0722009ABB0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B241C7D0722009ABB0E /* Constants.swift */; };
+		C8E41B251C7D0722009ABB0E /* ExtensionAppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B241C7D0722009ABB0E /* ExtensionAppColors.swift */; };
+		C8E41B451C7E2AAE009ABB0E /* FilmImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B441C7E2AAE009ABB0E /* FilmImageButton.swift */; };
+		C8E41B481C7FB572009ABB0E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B471C7FB572009ABB0E /* TableViewController.swift */; };
+		C8E41B4A1C7FBA0C009ABB0E /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B491C7FBA0C009ABB0E /* FilmCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +54,10 @@
 		C8C2C2BB1C791E100030F279 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		C8E41B201C7B7AE5009ABB0E /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		C8E41B221C7D0625009ABB0E /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
-		C8E41B241C7D0722009ABB0E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C8E41B241C7D0722009ABB0E /* ExtensionAppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionAppColors.swift; sourceTree = "<group>"; };
+		C8E41B441C7E2AAE009ABB0E /* FilmImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmImageButton.swift; sourceTree = "<group>"; };
+		C8E41B471C7FB572009ABB0E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C8E41B491C7FBA0C009ABB0E /* FilmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,14 +74,6 @@
 		C84B66551C7934FD00FB25ED /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				C84B66561C79351900FB25ED /* Catamaran */,
-			);
-			name = Fonts;
-			sourceTree = "<group>";
-		};
-		C84B66561C79351900FB25ED /* Catamaran */ = {
-			isa = PBXGroup;
-			children = (
 				C84B66571C79377A00FB25ED /* Catamaran-Black.ttf */,
 				C84B66581C79377A00FB25ED /* Catamaran-Bold.ttf */,
 				C84B66591C79377A00FB25ED /* Catamaran-ExtraBold.ttf */,
@@ -86,7 +84,7 @@
 				C84B665E1C79377A00FB25ED /* Catamaran-SemiBold.ttf */,
 				C84B665F1C79377A00FB25ED /* Catamaran-Thin.ttf */,
 			);
-			name = Catamaran;
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		C8AAB2EF1C789F1E00376ED0 = {
@@ -108,6 +106,7 @@
 		C8AAB2FA1C789F1E00376ED0 /* Favourite-Films */ = {
 			isa = PBXGroup;
 			children = (
+				C8E41B461C7E7989009ABB0E /* Resources */,
 				C8C2C2B81C7918C30030F279 /* Controller */,
 				C8C2C2B71C7918BD0030F279 /* View */,
 				C8C2C2B61C7918930030F279 /* Model */,
@@ -129,13 +128,13 @@
 		C8C2C2B71C7918BD0030F279 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C84B66551C7934FD00FB25ED /* Fonts */,
 				C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */,
 				C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */,
 				C807F5061C7A648D00B44A8A /* CustomTextField.swift */,
-				C8E41B201C7B7AE5009ABB0E /* StarRating.swift */,
 				C8E41B221C7D0625009ABB0E /* CustomTextView.swift */,
-				C8E41B241C7D0722009ABB0E /* Constants.swift */,
+				C8E41B241C7D0722009ABB0E /* ExtensionAppColors.swift */,
+				C8E41B441C7E2AAE009ABB0E /* FilmImageButton.swift */,
+				C8E41B201C7B7AE5009ABB0E /* StarRating.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -145,8 +144,18 @@
 			children = (
 				C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */,
 				C8C2C2BB1C791E100030F279 /* DetailVC.swift */,
+				C8E41B471C7FB572009ABB0E /* TableViewController.swift */,
+				C8E41B491C7FBA0C009ABB0E /* FilmCell.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		C8E41B461C7E7989009ABB0E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C84B66551C7934FD00FB25ED /* Fonts */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,12 +240,15 @@
 			files = (
 				C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */,
 				C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */,
+				C8E41B451C7E2AAE009ABB0E /* FilmImageButton.swift in Sources */,
+				C8E41B481C7FB572009ABB0E /* TableViewController.swift in Sources */,
 				C8E41B211C7B7AE5009ABB0E /* StarRating.swift in Sources */,
 				C8AAB3041C789F1E00376ED0 /* Favourite_Films.xcdatamodeld in Sources */,
 				C8E41B231C7D0625009ABB0E /* CustomTextView.swift in Sources */,
 				C8AAB2FC1C789F1E00376ED0 /* AppDelegate.swift in Sources */,
 				C807F5071C7A648D00B44A8A /* CustomTextField.swift in Sources */,
-				C8E41B251C7D0722009ABB0E /* Constants.swift in Sources */,
+				C8E41B251C7D0722009ABB0E /* ExtensionAppColors.swift in Sources */,
+				C8E41B4A1C7FBA0C009ABB0E /* FilmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

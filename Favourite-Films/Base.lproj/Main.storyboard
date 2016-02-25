@@ -30,18 +30,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IZx-cj-Ygr">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="10" y="74" width="580" height="516"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="107" id="05J-2C-yzR">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="107"/>
+                                        <rect key="frame" x="0.0" y="92" width="580" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="05J-2C-yzR" id="AyV-QC-c6B">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="106.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="106.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlacholderFilmImage" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-KU-1Pb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="107"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderMoviePoster" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-KU-1Pb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="580" height="107"/>
                                                 </imageView>
                                                 <view alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-03-idJ">
                                                     <rect key="frame" x="0.0" y="69" width="600" height="38"/>
@@ -71,10 +71,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IZx-cj-Ygr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FhG-rX-pnN"/>
-                            <constraint firstItem="IZx-cj-Ygr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J9l-ke-Gjo"/>
-                            <constraint firstAttribute="trailing" secondItem="IZx-cj-Ygr" secondAttribute="trailing" id="bUW-7F-J8P"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IZx-cj-Ygr" secondAttribute="bottom" id="uUx-LD-UtN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IZx-cj-Ygr" secondAttribute="bottom" constant="10" id="4pb-Ui-0cA"/>
+                            <constraint firstAttribute="trailing" secondItem="IZx-cj-Ygr" secondAttribute="trailing" constant="10" id="bUW-7F-J8P"/>
+                            <constraint firstItem="IZx-cj-Ygr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="hTl-QB-ZVz"/>
+                            <constraint firstItem="IZx-cj-Ygr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="o30-dn-hIe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RRP-T4-gB8">
@@ -103,116 +103,145 @@
                         <viewControllerLayoutGuide type="top" id="TCf-6p-OX6"/>
                         <viewControllerLayoutGuide type="bottom" id="mQH-DE-GBz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uev-rd-dyc">
+                    <view key="view" contentMode="scaleToFill" id="uev-rd-dyc" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlacholderFilmImage" translatesAutoresizingMaskIntoConstraints="NO" id="znC-bW-lfZ" userLabel="ImageBG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderMoviePoster" translatesAutoresizingMaskIntoConstraints="NO" id="znC-bW-lfZ" userLabel="ImageBG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="um6-ay-BHp" userLabel="ViewBG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bcv-Hy-FJb" userLabel="TopHalfSV">
-                                <rect key="frame" x="10" y="74" width="580" height="187"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="PlaceholderMoviePoster" translatesAutoresizingMaskIntoConstraints="NO" id="f5h-mR-TF7">
-                                        <rect key="frame" x="0.0" y="0.0" width="132" height="187"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="187" id="i5X-VL-jaY"/>
-                                            <constraint firstAttribute="width" constant="132" id="pwI-WC-wKO"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5v7-DN-Nn0" userLabel="FieldsSV">
-                                        <rect key="frame" x="142" y="0.0" width="438" height="187"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YPB-aq-zhw" userLabel="FieldsSV">
-                                                <rect key="frame" x="0.0" y="0.0" width="438" height="65"/>
-                                                <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Film Title..." textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YdN-bN-a0g" userLabel="TitleField" customClass="CustomTextField" customModule="Favourite_Films" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="438" height="30"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="TUC-Qc-XgO"/>
-                                                        </constraints>
-                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                    </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Film's IMDb URL..." textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-Dg-HbN" userLabel="IMDbURLField" customClass="CustomTextField" customModule="Favourite_Films" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="35" width="438" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="aJe-Z2-0rz"/>
-                                                        </constraints>
-                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="done"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="irG-BE-nEQ" userLabel="IMDbRatingSV">
-                                                <rect key="frame" x="0.0" y="70" width="438" height="56"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="IMDb Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-Nw-Yx6" userLabel="IMDb Rating Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="26"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="26" id="93r-ZR-pzg"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="17"/>
-                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTE-du-5W9" userLabel="StarsViewIMDb" customClass="StarRating" customModule="Favourite_Films" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="26" width="438" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="Rgw-OD-3c8"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="CTE-du-5W9" secondAttribute="trailing" id="oWQ-2c-75w"/>
-                                                    <constraint firstItem="CTE-du-5W9" firstAttribute="leading" secondItem="irG-BE-nEQ" secondAttribute="leading" id="tys-kJ-Mnv"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-Eo-bhM" userLabel="MyRatingSV">
-                                                <rect key="frame" x="0.0" y="131" width="438" height="56"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="My Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-4z-aeg" userLabel="My Rating Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="26"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="26" id="T3h-pg-Ohf"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="17"/>
-                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Db-ad-cCI" userLabel="StarsViewMy" customClass="StarRating" customModule="Favourite_Films" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="26" width="438" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="6gC-P4-XBf"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="8Db-ad-cCI" secondAttribute="trailing" id="EYh-CO-pOR"/>
-                                                    <constraint firstItem="8Db-ad-cCI" firstAttribute="leading" secondItem="SBO-Eo-bhM" secondAttribute="leading" id="vrA-eF-Cjd"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uD-eX-EC7">
-                                <rect key="frame" x="0.0" y="266" width="600" height="324"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gh3-la-OLS" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="547"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rCN-Iu-QEq" userLabel="BottomHalfSV">
-                                                <rect key="frame" x="10" y="0.0" width="580" height="332"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bcv-Hy-FJb" userLabel="TopHalfSV">
+                                                <rect key="frame" x="10" y="10" width="580" height="187"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-tK-Era">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eA-Bj-ytZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="132" height="187"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="AddImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="f5h-mR-TF7">
+                                                                <rect key="frame" x="0.0" y="0.0" width="132" height="187"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="187" id="i5X-VL-jaY"/>
+                                                                    <constraint firstAttribute="width" constant="132" id="pwI-WC-wKO"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-xF-23k" customClass="FilmImageButton" customModule="Favourite_Films" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="132" height="187"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="132" id="4H0-ZX-eUc"/>
+                                                                    <constraint firstAttribute="height" constant="187" id="M8w-ZE-1vv"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button" image="AddImagePlaceholder"/>
+                                                                <connections>
+                                                                    <action selector="imageButtonTapped:" destination="4nV-8l-Uds" eventType="touchUpInside" id="ZGw-3r-8U8"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="hsD-xF-23k" firstAttribute="width" secondItem="f5h-mR-TF7" secondAttribute="width" id="OyU-Wj-bFZ"/>
+                                                            <constraint firstItem="hsD-xF-23k" firstAttribute="height" secondItem="f5h-mR-TF7" secondAttribute="height" id="odq-7n-HZK"/>
+                                                        </constraints>
+                                                        <variation key="default">
+                                                            <mask key="subviews">
+                                                                <exclude reference="f5h-mR-TF7"/>
+                                                            </mask>
+                                                            <mask key="constraints">
+                                                                <exclude reference="OyU-Wj-bFZ"/>
+                                                                <exclude reference="odq-7n-HZK"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5v7-DN-Nn0" userLabel="FieldsSV">
+                                                        <rect key="frame" x="142" y="0.0" width="438" height="187"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YPB-aq-zhw" userLabel="FieldsSV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="438" height="65"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Film Title..." textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YdN-bN-a0g" userLabel="TitleField" customClass="CustomTextField" customModule="Favourite_Films" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="438" height="30"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="TUC-Qc-XgO"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                                    </textField>
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Film's IMDb URL..." textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-Dg-HbN" userLabel="IMDbURLField" customClass="CustomTextField" customModule="Favourite_Films" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="35" width="438" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="aJe-Z2-0rz"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="done"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="irG-BE-nEQ" userLabel="IMDbRatingSV">
+                                                                <rect key="frame" x="0.0" y="70" width="438" height="56"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="IMDb Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-Nw-Yx6" userLabel="IMDb Rating Label">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="26"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="26" id="93r-ZR-pzg"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="17"/>
+                                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTE-du-5W9" userLabel="StarsViewIMDb" customClass="StarRating" customModule="Favourite_Films" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="26" width="438" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="Rgw-OD-3c8"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="CTE-du-5W9" secondAttribute="trailing" id="oWQ-2c-75w"/>
+                                                                    <constraint firstItem="CTE-du-5W9" firstAttribute="leading" secondItem="irG-BE-nEQ" secondAttribute="leading" id="tys-kJ-Mnv"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-Eo-bhM" userLabel="MyRatingSV">
+                                                                <rect key="frame" x="0.0" y="131" width="438" height="56"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="My Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-4z-aeg" userLabel="My Rating Label">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="26"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="26" id="T3h-pg-Ohf"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="17"/>
+                                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Db-ad-cCI" userLabel="StarsViewMy" customClass="StarRating" customModule="Favourite_Films" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="26" width="438" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="6gC-P4-XBf"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="8Db-ad-cCI" secondAttribute="trailing" id="EYh-CO-pOR"/>
+                                                                    <constraint firstItem="8Db-ad-cCI" firstAttribute="leading" secondItem="SBO-Eo-bhM" secondAttribute="leading" id="vrA-eF-Cjd"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rCN-Iu-QEq" userLabel="BottomHalfSV">
+                                                <rect key="frame" x="10" y="205" width="580" height="332"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-tK-Era" userLabel="IMDbSection">
                                                         <rect key="frame" x="0.0" y="0.0" width="580" height="161"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDb Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iA-OT-VQp" userLabel="IMDb Description Title">
@@ -242,7 +271,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="1vT-GP-3za" secondAttribute="trailing" id="NRr-hJ-Nux"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vmY-6w-dLY">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vmY-6w-dLY" userLabel="MySection">
                                                         <rect key="frame" x="0.0" y="171" width="580" height="161"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-fR-dnr" userLabel="My Review Title">
@@ -276,39 +305,39 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="rCN-Iu-QEq" firstAttribute="top" secondItem="Gh3-la-OLS" secondAttribute="top" id="39M-Vv-9S0"/>
-                                            <constraint firstAttribute="bottom" secondItem="rCN-Iu-QEq" secondAttribute="bottom" id="Kdd-1a-uhX"/>
-                                            <constraint firstItem="rCN-Iu-QEq" firstAttribute="leading" secondItem="Gh3-la-OLS" secondAttribute="leading" constant="10" id="O3i-Rs-XsS"/>
-                                            <constraint firstAttribute="trailing" secondItem="rCN-Iu-QEq" secondAttribute="trailing" constant="10" id="pps-PQ-7K3"/>
+                                            <constraint firstItem="Bcv-Hy-FJb" firstAttribute="leading" secondItem="Gh3-la-OLS" secondAttribute="leading" constant="10" id="4eV-4L-Wbi"/>
+                                            <constraint firstAttribute="bottom" secondItem="rCN-Iu-QEq" secondAttribute="bottom" constant="10" id="K3F-95-20s"/>
+                                            <constraint firstItem="rCN-Iu-QEq" firstAttribute="leading" secondItem="Gh3-la-OLS" secondAttribute="leading" constant="10" id="RVh-Cm-1YT"/>
+                                            <constraint firstItem="Bcv-Hy-FJb" firstAttribute="top" secondItem="Gh3-la-OLS" secondAttribute="top" constant="10" id="URB-64-dja"/>
+                                            <constraint firstItem="rCN-Iu-QEq" firstAttribute="top" secondItem="Bcv-Hy-FJb" secondAttribute="bottom" constant="8" id="XxN-bo-m0n"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bcv-Hy-FJb" secondAttribute="trailing" constant="10" id="aTJ-Mn-Bzf"/>
+                                            <constraint firstAttribute="trailing" secondItem="rCN-Iu-QEq" secondAttribute="trailing" constant="10" id="i8c-7j-YEG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Gh3-la-OLS" firstAttribute="leading" secondItem="0uD-eX-EC7" secondAttribute="leading" id="LSp-TD-Ll8"/>
-                                    <constraint firstAttribute="trailing" secondItem="Gh3-la-OLS" secondAttribute="trailing" id="cWW-7e-Hvu"/>
-                                    <constraint firstAttribute="bottom" secondItem="Gh3-la-OLS" secondAttribute="bottom" id="czT-s7-C60"/>
-                                    <constraint firstItem="Gh3-la-OLS" firstAttribute="top" secondItem="0uD-eX-EC7" secondAttribute="top" id="xCi-0F-8yF"/>
+                                    <constraint firstItem="Gh3-la-OLS" firstAttribute="leading" secondItem="0uD-eX-EC7" secondAttribute="leading" id="Cgm-fD-bBY"/>
+                                    <constraint firstItem="Gh3-la-OLS" firstAttribute="top" secondItem="0uD-eX-EC7" secondAttribute="top" id="Gzm-bj-esA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gh3-la-OLS" secondAttribute="trailing" id="XUl-i1-cSF"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gh3-la-OLS" secondAttribute="bottom" id="eBq-vQ-pHe"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="um6-ay-BHp" secondAttribute="trailing" id="4wk-L0-wuu"/>
-                            <constraint firstAttribute="trailing" secondItem="Bcv-Hy-FJb" secondAttribute="trailing" constant="10" id="6X7-ZL-wsP"/>
-                            <constraint firstItem="0uD-eX-EC7" firstAttribute="top" secondItem="Bcv-Hy-FJb" secondAttribute="bottom" constant="5" id="7Ic-au-KDx"/>
                             <constraint firstAttribute="bottom" secondItem="znC-bW-lfZ" secondAttribute="bottom" id="A98-3f-Kxs"/>
                             <constraint firstItem="0uD-eX-EC7" firstAttribute="leading" secondItem="uev-rd-dyc" secondAttribute="leading" id="DKR-S8-d60"/>
                             <constraint firstItem="um6-ay-BHp" firstAttribute="leading" secondItem="uev-rd-dyc" secondAttribute="leading" id="EQF-m1-jxR"/>
                             <constraint firstAttribute="trailing" secondItem="znC-bW-lfZ" secondAttribute="trailing" id="Mtw-KK-IIe"/>
+                            <constraint firstItem="0uD-eX-EC7" firstAttribute="top" secondItem="TCf-6p-OX6" secondAttribute="bottom" id="X2t-vB-Tg4"/>
                             <constraint firstAttribute="bottom" secondItem="um6-ay-BHp" secondAttribute="bottom" id="bVh-th-4xw"/>
                             <constraint firstItem="znC-bW-lfZ" firstAttribute="leading" secondItem="uev-rd-dyc" secondAttribute="leading" id="dMn-LF-biD"/>
                             <constraint firstItem="znC-bW-lfZ" firstAttribute="top" secondItem="uev-rd-dyc" secondAttribute="top" id="gRu-nb-6Zf"/>
-                            <constraint firstItem="Bcv-Hy-FJb" firstAttribute="leading" secondItem="uev-rd-dyc" secondAttribute="leading" constant="10" id="i2H-Ox-cLM"/>
                             <constraint firstItem="um6-ay-BHp" firstAttribute="top" secondItem="uev-rd-dyc" secondAttribute="top" id="iA6-5c-0CH"/>
                             <constraint firstItem="Gh3-la-OLS" firstAttribute="width" secondItem="uev-rd-dyc" secondAttribute="width" id="kx1-zz-PU0"/>
-                            <constraint firstItem="Bcv-Hy-FJb" firstAttribute="top" secondItem="TCf-6p-OX6" secondAttribute="bottom" constant="10" id="oga-3K-8WU"/>
                             <constraint firstAttribute="trailing" secondItem="0uD-eX-EC7" secondAttribute="trailing" id="omf-nV-1cM"/>
-                            <constraint firstAttribute="bottom" secondItem="0uD-eX-EC7" secondAttribute="bottom" constant="10" id="rf5-xi-qdJ"/>
+                            <constraint firstItem="mQH-DE-GBz" firstAttribute="top" secondItem="0uD-eX-EC7" secondAttribute="bottom" id="u5m-Yw-8el"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -324,10 +353,13 @@
                     <connections>
                         <outlet property="cancelButton" destination="fJh-Ah-vaU" id="wZv-BJ-hum"/>
                         <outlet property="imdbDesc" destination="1vT-GP-3za" id="Hy9-5t-8Pw"/>
+                        <outlet property="imdbStarView" destination="CTE-du-5W9" id="97O-gN-xIT"/>
                         <outlet property="imdbStars" destination="CTE-du-5W9" id="vhQ-Q6-zqA"/>
-                        <outlet property="myDesc" destination="sJ3-2e-jfz" id="EGH-E7-YKh"/>
+                        <outlet property="myReview" destination="sJ3-2e-jfz" id="fHh-JA-KoB"/>
+                        <outlet property="myStarView" destination="8Db-ad-cCI" id="JyP-5y-Far"/>
                         <outlet property="myStars" destination="8Db-ad-cCI" id="D4U-wz-MrC"/>
                         <outlet property="navTitle" destination="Wg8-rq-9ZH" id="sDP-76-cj0"/>
+                        <outlet property="saveButton" destination="6Ft-xU-dxr" id="Pbj-zM-TgR"/>
                         <outlet property="titleField" destination="YdN-bN-a0g" id="2Ti-X6-PiT"/>
                         <outlet property="urlField" destination="gBS-Dg-HbN" id="Ggo-d2-ycZ"/>
                     </connections>
@@ -362,8 +394,8 @@
     </scenes>
     <resources>
         <image name="AddButton" width="18" height="22"/>
+        <image name="AddImagePlaceholder" width="132" height="187"/>
         <image name="PlaceholderMoviePoster" width="531" height="750"/>
-        <image name="PlacholderFilmImage" width="300" height="168"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dGh-Ji-Eqn"/>
