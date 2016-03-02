@@ -29,6 +29,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     // MARK: - Properties
     var readOnly = false
     var imagePicker: UIImagePickerController!
+    var selectedFilm = Film?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +114,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         view.endEditing(true)
     }
     
-    // Read Only Mode - disables user interaction on all fields, hides the 'Cancel', and 'Save' buttons, hides the URL field, and displays the URL button.
+    // Read Only Mode - disables user interaction on everything and populate the views with the passed in film data.
     func setToReadOnly() {
         self.navigationItem.setLeftBarButtonItem(nil, animated: true)
         self.navigationItem.setRightBarButtonItem(nil, animated: true)
@@ -125,6 +126,16 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         myStarView.userInteractionEnabled = false
         imdbDesc.userInteractionEnabled = false
         myReview.userInteractionEnabled = false
+        imageButton.userInteractionEnabled = false
+        
+        let film = selectedFilm!
+        imageButton.setImage(film.getFilmImage(), forState: .Normal)
+        titleField.text = film.title
+        imdbStarView.rating = Int(film.imdbRating!)
+        myStarView.rating = Int(film.myRating!)
+        imdbDesc.text = film.imdbDescription
+        myReview.text = film.myReview
+        setBackgroundImage(film.getFilmImage())
     }
     
     // Disable the 'Save' button if it's not already disabled.

@@ -11,8 +11,10 @@ import CoreData
 
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Properties
     var films = [Film]()
     
     override func viewDidLoad() {
@@ -37,6 +39,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.estimatedRowHeight = 107.0
     }
     
+    // MARK: - Functions
     override func viewDidAppear(animated: Bool) {
         fetchAndSetResults()
         tableView.reloadData()
@@ -76,7 +79,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // Use for row selection.
+        let film = films[indexPath.row]
+        performSegueWithIdentifier("goToDetailVCRead", sender: film)
     }
     
     
@@ -96,6 +100,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if let detailVC = segue.destinationViewController as? DetailVC {
                 detailVC.navTitle.title = "Film Details"
                 detailVC.readOnly = true
+                detailVC.selectedFilm = sender as? Film
             }
         }
     }
