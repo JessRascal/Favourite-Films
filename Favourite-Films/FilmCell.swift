@@ -12,11 +12,11 @@ class FilmCell: UITableViewCell {
 
     @IBOutlet weak var filmImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var filmUrl: UIButton!
+    //@IBOutlet weak var filmUrl: UIButton!
     @IBOutlet weak var imdbStarImage: UIImageView!
     @IBOutlet weak var myStarImage: UIImageView!
-//    @IBOutlet weak var imdbDesc: UILabel!
-//    @IBOutlet weak var myReview: UILabel!
+    //@IBOutlet weak var imdbDesc: UILabel!
+    //@IBOutlet weak var myReview: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +26,8 @@ class FilmCell: UITableViewCell {
     
     func configureCell(film: Film) {
         titleLabel.text = film.title
-        imdbStarImage.image = UIImage(named: "Star\(1)") //TEMPORARILY SET TO 1 STAR.
-        myStarImage.image = UIImage(named: "Star\(1)") //TEMPORARILY SET TO 1 STAR.
+        imdbStarImage.image = UIImage(named: "Star\(Int(film.imdbRating!))")
+        myStarImage.image = UIImage(named: "Star\(Int(film.myRating!))")
         filmImage.image = film.getFilmImage()
     }
 

@@ -6,7 +6,6 @@
 //  Copyright © 2016 JustOneJess. All rights reserved.
 //
 
-import Foundation
 import CoreData
 import UIKit
 

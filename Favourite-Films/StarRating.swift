@@ -13,7 +13,7 @@ let starButtonNotificationKey = "starButtonNotificationKey"
 class StarRating: UIView {
     
     // MARK: Properties
-    var rating = 0 {
+    var rating: Int? {
         didSet {
             setNeedsLayout()
         }
@@ -70,9 +70,9 @@ class StarRating: UIView {
     
     // MARK: Button Action
     func starButtonTapped(button: UIButton) {
-        // Post a notification when the button is tapped for form validation.
-        NSNotificationCenter.defaultCenter().postNotificationName(starButtonNotificationKey, object: self)
         rating = starButtons.indexOf(button)!+1
+        // Post a notification when the rating is updated (used for form validation in DetailVC).
+        NSNotificationCenter.defaultCenter().postNotificationName(starButtonNotificationKey, object: self)
         updateButtonSelectedStates()
     }
     

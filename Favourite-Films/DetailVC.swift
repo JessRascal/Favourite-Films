@@ -10,32 +10,30 @@ import UIKit
 import CoreData
 
 class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var urlField: CustomTextField!
-    @IBOutlet weak var imdbStars: StarRating!
-    @IBOutlet weak var myStars: StarRating!
     @IBOutlet weak var imdbDesc: CustomTextView!
     @IBOutlet weak var myReview: CustomTextView!
     @IBOutlet weak var imdbStarView: StarRating!
     @IBOutlet weak var myStarView: StarRating!
     @IBOutlet weak var urlButton: ButtonWithBorder!
     @IBOutlet weak var imageButton: FilmImageButton!
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet weak var bgView: UIView!
     
-    //MARK: - Properties
+    // MARK: - Properties
     var readOnly = false
-    var imdbRatingGiven = false
-    var myRatingGiven = false
     var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Checks if the views should be read only.
+        // Checks if the views should be read only and if true then runs the read only function.
         if readOnly == true {
             setToReadOnly()
         }
@@ -57,14 +55,57 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         titleField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
         urlField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
         
-        //TODO - NEED TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM.
-        // Checks if if any of the star buttons have been tapped (via a notification from the 'StarRating' class.
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateStarRating:", name: starButtonNotificationKey, object: nil)
+        // Checks if any of the star buttons have been tapped (via a notification from the 'StarRating' class).
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "formValidation", name: starButtonNotificationKey, object: nil)
         
         // Image picker.
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
     }
+    
+    // MARK: - Form Validation
+    
+    // Checks if the text views have changed.
+    func textViewDidChange(textView: UITextView) {
+        formValidation()
+    }
+    
+    // Validates that all fields for a new film have been populated.
+    func formValidation() {
+        guard let title = titleField.text where title != "" else {
+            //            print("The title field has not been populated.")
+            disableSaveButton()
+            return
+        }
+        guard let url = urlField.text where url != "" else {
+            //            print("The URL field has not been populated.")
+            disableSaveButton()
+            return
+        }
+        guard let imdbDescIn = imdbDesc.text where imdbDescIn != "" else {
+            //            print("The description view has not been populated.")
+            disableSaveButton()
+            return
+        }
+        guard let myReviewIn = myReview.text where myReviewIn != "" else {
+            //            print("The review field has not been populated.")
+            disableSaveButton()
+            return
+        }
+        guard let imdbRatingIn = imdbStarView.rating where imdbRatingIn > 0 else {
+            disableSaveButton()
+            return
+        }
+        guard let myRatingIn = myStarView.rating where myRatingIn > 0 else {
+            disableSaveButton()
+            return
+        }
+        // If all of the above guard statements pass then...
+        saveButton.enabled = true
+    }
+    
+    
+    // MARK: - Functions
     
     // Calls this function when a tap is recognized.
     func dismissKeyboard() {
@@ -72,7 +113,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         view.endEditing(true)
     }
     
-    // Disables user interaction on all fields, hides the 'Cancel', and 'Save' buttons, hides the URL field, and displays the URL button.
+    // Read Only Mode - disables user interaction on all fields, hides the 'Cancel', and 'Save' buttons, hides the URL field, and displays the URL button.
     func setToReadOnly() {
         self.navigationItem.setLeftBarButtonItem(nil, animated: true)
         self.navigationItem.setRightBarButtonItem(nil, animated: true)
@@ -80,74 +121,43 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         urlField.userInteractionEnabled = false
         urlField.hidden = true
         urlButton.hidden = false
-        imdbStars.userInteractionEnabled = false
-        myStars.userInteractionEnabled = false
+        imdbStarView.userInteractionEnabled = false
+        myStarView.userInteractionEnabled = false
         imdbDesc.userInteractionEnabled = false
         myReview.userInteractionEnabled = false
-        
     }
     
-    //MARK: - Form Validation
-    
-    // Checks if the text views have changed.
-    func textViewDidChange(textView: UITextView) {
-        formValidation()
-    }
-    
-    // Validates the entries in the formn fields/views.
-    func formValidation() {
-        guard let title = titleField.text where title != "" else {
-//            print("The title field has not been populated.")
-            disableSaveButton()
-            return
-        }
-        guard let url = urlField.text where url != "" else {
-//            print("The URL field has not been populated.")
-            disableSaveButton()
-            return
-        }
-        guard let imdbDescIn = imdbDesc.text where imdbDescIn != "" else {
-//            print("The description view has not been populated.")
-            disableSaveButton()
-            return
-        }
-        guard let myReviewIn = myReview.text where myReviewIn != "" else {
-//            print("The review field has not been populated.")
-            disableSaveButton()
-            return
-        }
-        
-        //TODO - NEED TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM FOR THE FORM VALIDATION.
-//        if self.imdbRatingGiven != false && myRatingGiven != false {
-//            saveButton.enabled = true
-//            //        saveButton.tintColor = UIColor.positiveActionColor()
-//        } else {
-//            print("The IMDb and/or 'My' star rating hasn't been set.")
-//            disableSaveButton()
-//        }
-        saveButton.enabled = true
-
-    }
-    
+    // Disable the 'Save' button if it's not already disabled.
     func disableSaveButton() {
         if saveButton.enabled == true {
             saveButton.enabled = false
         }
     }
     
-    //TODO - NEED TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM FOR THE FORM VALIDATION.
-    // Update the star ratings when one is changed.
-    //    func updateStarRating(starRatingButton: AnyObject) {
-    //        if starRatingButton.isDescendantOfView(self.imdbStarView) {
-    //            imdbRatingGiven = true
-    //            print("IMDb star rating given.")
-    //        }
-    //    }
-
+    // Set the background image if there's one to diaplay.
+    func setBackgroundImage(imageIn: UIImage?) {
+        if let image = imageIn {
+        bgImage.image = image
+        bgImage.hidden = false
+        bgView.backgroundColor = UIColor.transparentBlack()
+        } else {
+            bgImage.hidden = true
+            bgView.backgroundColor = UIColor.appPrimaryColor()
+        }
+    }
+    
+    // Run when the user selects an image from the image picker.
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        imageButton.setImage(image, forState: .Normal)
+        setBackgroundImage(image)
+    }
+    
     // MARK: - Actions
     
+    // Cancel button function.
     @IBAction func cancelTapped(sender: AnyObject) {
-        // Perform an action for when the user selects 'Cancel'.
+        // Dispolay an aleert when the user selects 'Cancel'.
         
         // Closure for back action.
         let backAction = { (action: UIAlertAction) -> Void in
@@ -163,8 +173,9 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         presentViewController(alertController, animated: true, completion: nil)
     }
     
+    // Save button function.
     @IBAction func saveTapped(sender: AnyObject) {
-        if let image = imageButton.imageView?.image, title = titleField.text, let url = urlField.text,/* let imdbRating = imdbRating, let myRating = myRating, */let imdbDesc = imdbDesc.text, let myReview = myReview.text {
+        if let image = imageButton.imageView?.image, title = titleField.text, url = urlField.text, imdbDesc = imdbDesc.text, myReview = myReview.text {
             
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = app.managedObjectContext
@@ -173,8 +184,8 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
             film.setFilmImage(image)
             film.title = title
             film.url = url
-            film.imdbRating = 1 // TODO - Capture star rating.
-            film.myRating = 1 // TODO - Capture star rating.
+            film.imdbRating = imdbStarView.rating
+            film.myRating = myStarView.rating
             film.imdbDescription = imdbDesc
             film.myReview = myReview
             
@@ -188,17 +199,12 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         }
     }
     
+    // Image button function for selecting a film image.
     @IBAction func imageButtonTapped(sender: UIButton) {
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    // URL button function (only displayed in read-only mode).
     @IBAction func urlButtonTapped(sender: AnyObject) {
     }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        imagePicker.dismissViewControllerAnimated(true, completion: nil)
-        imageButton.setImage(image, forState: .Normal)
-    }
-    
-    
 }
