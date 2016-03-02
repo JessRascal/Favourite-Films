@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var films = [Film]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +31,36 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         // Set the text of the default 'Back' button (no text, just the arrow).
         navigationItem.title = ""
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 107.0
     }
     
-    // MARK: - Table Functions
+    override func viewDidAppear(animated: Bool) {
+        fetchAndSetResults()
+        tableView.reloadData()
+    }
+    
+    func fetchAndSetResults() {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate // Get the AppDelegate.
+        let context = app.managedObjectContext // Get the 'managedObjectContext' property (the "data waiting room").
+        let fetchRequest = NSFetchRequest(entityName: "Film") // Set up for an actual data fetch request for the specific entity.
+        
+        do {
+            let results = try context.executeFetchRequest(fetchRequest) // Try to perform the actual fetch request and catch the error if it fails.
+            self.films = results as! [Film]
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    // MARK: - TableView Functions
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("filmCell") as? FilmCell {
-            // CONFIGURE CELL HERE
+        
+        if let cell = tableView.dequeueReusableCellWithIdentifier("FilmCell") as? FilmCell {
+            let film = films[indexPath.row]
+            cell.configureCell(film)
             return cell
         } else {
             return FilmCell()
@@ -45,9 +72,15 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 // CHANGE BASED ON DATA SOURCE.
+        return films.count
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Use for row selection.
+    }
+    
+    
+    // MARK: - Actions
     @IBAction func loadDetailVC(sender: AnyObject!) {
         performSegueWithIdentifier("goToDetailVCEdit", sender: nil)
     }
