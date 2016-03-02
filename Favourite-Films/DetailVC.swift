@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -22,11 +23,14 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var myReview: CustomTextView!
     @IBOutlet weak var imdbStarView: StarRating!
     @IBOutlet weak var myStarView: StarRating!
+    @IBOutlet weak var urlButton: ButtonWithBorder!
+    @IBOutlet weak var imageButton: FilmImageButton!
     
     //MARK: - Properties
     var readOnly = false
     var imdbRatingGiven = false
     var myRatingGiven = false
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +57,13 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         titleField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
         urlField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
         
-        //DISABLED - UNABLE TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM.
+        //TODO - NEED TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM.
         // Checks if if any of the star buttons have been tapped (via a notification from the 'StarRating' class.
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateStarRating:", name: starButtonNotificationKey, object: nil)
+        
+        // Image picker.
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
     }
     
     // Calls this function when a tap is recognized.
@@ -64,16 +72,19 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         view.endEditing(true)
     }
     
-    // Disables user interaction on all fields and hides the 'Cancel', and 'Save' buttons.
+    // Disables user interaction on all fields, hides the 'Cancel', and 'Save' buttons, hides the URL field, and displays the URL button.
     func setToReadOnly() {
         self.navigationItem.setLeftBarButtonItem(nil, animated: true)
         self.navigationItem.setRightBarButtonItem(nil, animated: true)
         titleField.userInteractionEnabled = false
         urlField.userInteractionEnabled = false
+        urlField.hidden = true
+        urlButton.hidden = false
         imdbStars.userInteractionEnabled = false
         myStars.userInteractionEnabled = false
         imdbDesc.userInteractionEnabled = false
         myReview.userInteractionEnabled = false
+        
     }
     
     //MARK: - Form Validation
@@ -105,7 +116,8 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
             disableSaveButton()
             return
         }
-        //DISABLED - UNABLE TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM.
+        
+        //TODO - NEED TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM FOR THE FORM VALIDATION.
 //        if self.imdbRatingGiven != false && myRatingGiven != false {
 //            saveButton.enabled = true
 //            //        saveButton.tintColor = UIColor.positiveActionColor()
@@ -122,22 +134,22 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
             saveButton.enabled = false
         }
     }
+    
+    //TODO - NEED TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM FOR THE FORM VALIDATION.
+    // Update the star ratings when one is changed.
+    //    func updateStarRating(starRatingButton: AnyObject) {
+    //        if starRatingButton.isDescendantOfView(self.imdbStarView) {
+    //            imdbRatingGiven = true
+    //            print("IMDb star rating given.")
+    //        }
+    //    }
 
     // MARK: - Actions
     
-    //DISABLED - UNABLE TO FIND OUT WHICH SET OF STARS (UIVIEW) THE NOTIFICATION CAME FROM.
-    // Update the star ratings when one is changed.
-//    func updateStarRating(starRatingButton: AnyObject) {
-//        if starRatingButton.isDescendantOfView(self.imdbStarView) {
-//            imdbRatingGiven = true
-//            print("IMDb star rating given.")
-//        }
-//    }
-    
     @IBAction func cancelTapped(sender: AnyObject) {
-        // Create an action for when the user selects 'Cancel'.
+        // Perform an action for when the user selects 'Cancel'.
         
-        // Closure
+        // Closure for back action.
         let backAction = { (action: UIAlertAction) -> Void in
             self.navigationController?.popViewControllerAnimated(true)
         }
@@ -151,8 +163,41 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func imageButtonTapped(sender: AnyObject) {
-        print("Image Tapped")
+    @IBAction func saveTapped(sender: AnyObject) {
+        if let image = imageButton.imageView?.image, title = titleField.text, let url = urlField.text,/* let imdbRating = imdbRating, let myRating = myRating, */let imdbDesc = imdbDesc.text, let myReview = myReview.text {
+            
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)! // Create a new Film class.
+            let film = Film(entity: entity, insertIntoManagedObjectContext: context)
+            film.setFilmImage(image)
+            film.title = title
+            film.url = url
+            film.imdbRating = 1 // TODO - Capture star rating.
+            film.myRating = 1 // TODO - Capture star rating.
+            film.imdbDescription = imdbDesc
+            film.myReview = myReview
+            
+            context.insertObject(film)
+            do {
+                try context.save() // Save the film to the actual database (persisted store).
+            } catch {
+                print("Could not save film")
+            }
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
+    @IBAction func imageButtonTapped(sender: UIButton) {
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func urlButtonTapped(sender: AnyObject) {
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        imageButton.setImage(image, forState: .Normal)
     }
     
     

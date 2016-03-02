@@ -11,22 +11,24 @@ import UIKit
 class FilmCell: UITableViewCell {
 
     @IBOutlet weak var filmImage: UIImageView!
-    @IBOutlet weak var filmTitle: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+//    @IBOutlet weak var filmUrl: UIButton!
+    @IBOutlet weak var imdbStarImage: UIImageView!
+    @IBOutlet weak var myStarImage: UIImageView!
+//    @IBOutlet weak var imdbDesc: UILabel!
+//    @IBOutlet weak var myReview: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        titleLabel.tintColor = UIColor.appSecondaryColor()
     }
-
-//    override func setSelected(selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
     
-    func configureCell(image: UIImage, text: String) {
-        filmImage.image = image
-        filmTitle.text = text
+    func configureCell(film: Film) {
+        titleLabel.text = film.title
+        imdbStarImage.image = UIImage(named: "Star\(1)") //TEMPORARILY SET TO 1 STAR.
+        myStarImage.image = UIImage(named: "Star\(1)") //TEMPORARILY SET TO 1 STAR.
+        filmImage.image = film.getFilmImage()
     }
 
 }
