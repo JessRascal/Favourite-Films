@@ -1,5 +1,5 @@
 //
-//  AddVC.swift
+//  DetailVC.swift
 //  Favourite-Films
 //
 //  Created by Michael Jessey on 20/02/2016.
@@ -12,8 +12,9 @@ import CoreData
 class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Outlets
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    // Nav bar buttons not set to weak so they stay in memory so they can be added back when editing.
+    @IBOutlet var cancelButton: UIBarButtonItem!
+    @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var urlField: CustomTextField!
@@ -27,16 +28,16 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     @IBOutlet weak var bgView: UIView!
     
     // MARK: - Properties
-    var readOnly = false
+    var newRecord: Bool!
     var imagePicker: UIImagePickerController!
     var selectedFilm = Film?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Checks if the views should be read only and if true then runs the read only function.
-        if readOnly == true {
-            setToReadOnly()
+        // Checks if the detailVC is being used for a new record and if not then sets it to read only mode.
+        if newRecord == false {
+            setToReadOnlyMode()
         }
         
         // Checks for taps on the VC from the user.
@@ -102,35 +103,29 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
             return
         }
         // If all of the above guard statements pass then...
-        saveButton.enabled = true
+            enableSaveButton()
     }
     
     
     // MARK: - Functions
     
-    // Calls this function when a tap is recognized.
+    // Calls this function when a tap is recognized anywhere in a view.
     func dismissKeyboard() {
         // Causes the view (or one of its embedded text fields/views) to resign the first responder status.
         view.endEditing(true)
     }
     
     // Read Only Mode - disables user interaction on everything and populate the views with the passed in film data.
-    func setToReadOnly() {
-        self.navigationItem.setLeftBarButtonItem(nil, animated: true)
-        self.navigationItem.setRightBarButtonItem(nil, animated: true)
-        titleField.userInteractionEnabled = false
-        urlField.userInteractionEnabled = false
-        urlField.hidden = true
-        urlButton.hidden = false
-        imdbStarView.userInteractionEnabled = false
-        myStarView.userInteractionEnabled = false
-        imdbDesc.userInteractionEnabled = false
-        myReview.userInteractionEnabled = false
-        imageButton.userInteractionEnabled = false
+    func setToReadOnlyMode() {
+        let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "setToEditMode")
+        navigationItem.setLeftBarButtonItem(nil, animated: true)
+        navigationItem.setRightBarButtonItem(editButton, animated: true)
+        setFormInteraction(false)
         
         let film = selectedFilm!
         imageButton.setImage(film.getFilmImage(), forState: .Normal)
         titleField.text = film.title
+        urlField.text = film.url
         imdbStarView.rating = Int(film.imdbRating!)
         myStarView.rating = Int(film.myRating!)
         imdbDesc.text = film.imdbDescription
@@ -138,14 +133,33 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         setBackgroundImage(film.getFilmImage())
     }
     
-    // Disable the 'Save' button if it's not already disabled.
-    func disableSaveButton() {
-        if saveButton.enabled == true {
-            saveButton.enabled = false
+    // Edit mode for editing a film's details.
+    func setToEditMode() {
+        navigationItem.setLeftBarButtonItem(cancelButton, animated: true)
+        navigationItem.setRightBarButtonItem(saveButton, animated: true)
+        setFormInteraction(true)
+    }
+    
+    // Set the form field interaction status (editable true = Add/Edit Mode, editable false = Read Only Mode).
+    func setFormInteraction(editable: Bool) {
+        titleField.userInteractionEnabled = editable
+        urlField.userInteractionEnabled = editable
+        imdbStarView.userInteractionEnabled = editable
+        myStarView.userInteractionEnabled = editable
+        imdbDesc.userInteractionEnabled = editable
+        myReview.userInteractionEnabled = editable
+        imageButton.userInteractionEnabled = editable
+        // Broken out like this to make the transition smoother based on what appears when.
+        if editable == true {
+            urlField.hidden = !editable
+            urlButton.hidden = editable
+        } else {
+            urlButton.hidden = editable
+            urlField.hidden = !editable
         }
     }
     
-    // Set the background image if there's one to diaplay.
+    // Set the background image if there's one to display.
     func setBackgroundImage(imageIn: UIImage?) {
         if let image = imageIn {
         bgImage.image = image
@@ -164,15 +178,33 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         setBackgroundImage(image)
     }
     
+    // Disable the 'Save' button if it's not already disabled.
+    func disableSaveButton() {
+        if saveButton.enabled == true {
+            saveButton.enabled = false
+        }
+    }
+    
+    // Enable the 'Save' button if it's not already enabled.
+    func enableSaveButton() {
+        if saveButton.enabled == false {
+            saveButton.enabled = true
+        }
+    }
+    
     // MARK: - Actions
     
     // Cancel button function.
     @IBAction func cancelTapped(sender: AnyObject) {
-        // Dispolay an aleert when the user selects 'Cancel'.
+        // Displays an alert when the user selects 'Cancel'.
         
         // Closure for back action.
         let backAction = { (action: UIAlertAction) -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
+            if self.newRecord == true {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                self.setToReadOnlyMode()
+            }
         }
         
         let alertController = UIAlertController(title: "Cancel Without Saving?", message: "Do you want to discard your unsaved changes?", preferredStyle: .Alert)
@@ -188,9 +220,13 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     @IBAction func saveTapped(sender: AnyObject) {
         if let image = imageButton.imageView?.image, title = titleField.text, url = urlField.text, imdbDesc = imdbDesc.text, myReview = myReview.text {
             
+            // Add in two paths for adding (current) and updating an existing record!!!!!!!!!!!!!!!!!!!!!!
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = app.managedObjectContext
-            let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)! // Create a new Film class in the managed context (waiting room).
+            
+            // Saving a new record.
+            if newRecord == true {
+            let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)! // Create a new Film entity in the managed context (waiting room).
             let film = Film(entity: entity, insertIntoManagedObjectContext: context)
             film.setFilmImage(image)
             film.title = title
@@ -201,8 +237,31 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
             film.myReview = myReview
             
             context.insertObject(film)
+            } else {
+                // Updating an existing record.
+                let request = NSFetchRequest()
+                let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)!
+                request.entity = entity
+                do {
+                    let fetchedFilm = try context.executeFetchRequest(request)
+                    print("Made it here. Film: \(fetchedFilm)")
+                    //THIS IS CURRENTLY BRINGING ALL THE RECORDS BACK, NOT AN INDIVIDUAL ONE.
+                    //Update the film details here.
+//                    fetchedFilm.setFilmImage(image)
+//                    fetchedFilm.title = title
+//                    fetchedFilm.url = url
+//                    fetchedFilm.imdbRating = imdbStarView.rating
+//                    fetchedFilm.myRating = myStarView.rating
+//                    fetchedFilm.imdbDescription = imdbDesc
+//                    fetchedFilm.myReview = myReview
+                } catch {
+                    let err = error as NSError
+                    print("\(err)")
+                }
+            }
+            
             do {
-                try context.save() // Save the film to the actual database (persisted store).
+                try context.save() // Save the data in the ManagedObject to core data.
             } catch {
                 print("Could not save film")
             }

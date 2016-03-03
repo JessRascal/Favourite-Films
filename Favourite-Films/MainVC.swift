@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainVC.swift
 //  Favourite-Films
 //
 //  Created by Michael Jessey on 20/02/2016.
@@ -33,7 +33,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         navigationItem.leftBarButtonItem?.enabled = false
         
         // Set the text of the default 'Back' button (no text, just the arrow).
-        navigationItem.title = ""
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -103,21 +103,22 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - Actions
-    @IBAction func loadDetailVC(sender: AnyObject!) {
-        performSegueWithIdentifier("goToDetailVCEdit", sender: nil)
+    @IBAction func addButtonTapped(sender: AnyObject!) {
+        performSegueWithIdentifier("goToDetailVCAdd", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goToDetailVCEdit" {
+        if segue.identifier == "goToDetailVCAdd" {
             if let detailVC = segue.destinationViewController as? DetailVC {
                 detailVC.navTitle.title = "Add a Film"
+                detailVC.newRecord = true
             }
         }
         
         if segue.identifier == "goToDetailVCRead" {
             if let detailVC = segue.destinationViewController as? DetailVC {
                 detailVC.navTitle.title = "Film Details"
-                detailVC.readOnly = true
+                detailVC.newRecord = false
                 detailVC.selectedFilm = sender as? Film
             }
         }

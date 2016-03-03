@@ -156,13 +156,13 @@
                         <barButtonItem key="rightBarButtonItem" image="AddButton" id="77n-FG-pHI">
                             <color key="tintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="loadDetailVC:" destination="BYZ-38-t0r" id="mk8-px-xUD"/>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="YHT-yI-67W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="IZx-cj-Ygr" id="lmS-Wm-2Bj"/>
-                        <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCEdit" id="dGh-Ji-Eqn"/>
+                        <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCAdd" id="dGh-Ji-Eqn"/>
                         <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCRead" id="tgu-Bw-rJE"/>
                     </connections>
                 </viewController>
@@ -265,7 +265,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="irG-BE-nEQ" userLabel="IMDbRatingSV">
                                                                 <rect key="frame" x="0.0" y="70" width="438" height="56"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="IMDb Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-Nw-Yx6" userLabel="IMDb Rating Label">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="IMDb Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-Nw-Yx6" userLabel="IMDb Rating Label">
                                                                         <rect key="frame" x="0.0" y="0.0" width="88" height="26"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="26" id="93r-ZR-pzg"/>
@@ -289,7 +289,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-Eo-bhM" userLabel="MyRatingSV">
                                                                 <rect key="frame" x="0.0" y="131" width="438" height="56"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="My Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-4z-aeg" userLabel="My Rating Label">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="My Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-4z-aeg" userLabel="My Rating Label">
                                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="26"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="26" id="T3h-pg-Ohf"/>
@@ -314,19 +314,19 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rCN-Iu-QEq" userLabel="BottomHalfSV">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rCN-Iu-QEq" userLabel="BottomHalfSV">
                                                 <rect key="frame" x="10" y="205" width="580" height="332"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-tK-Era" userLabel="IMDbSection">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-tK-Era" userLabel="IMDbSection">
                                                         <rect key="frame" x="0.0" y="0.0" width="580" height="161"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="IMDb Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iA-OT-VQp" userLabel="IMDb Description Title">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDb Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iA-OT-VQp" userLabel="IMDb Description Title">
                                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="28"/>
                                                                 <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="17"/>
                                                                 <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1vT-GP-3za" userLabel="IMDb Description Area" customClass="CustomTextView" customModule="Favourite_Films" customModuleProvider="target">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1vT-GP-3za" userLabel="IMDb Description Area" customClass="CustomTextView" customModule="Favourite_Films" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="580" height="133"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="577" id="Hys-41-B1f"/>
@@ -347,16 +347,16 @@
                                                             <constraint firstAttribute="trailing" secondItem="1vT-GP-3za" secondAttribute="trailing" id="NRr-hJ-Nux"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vmY-6w-dLY" userLabel="MySection">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vmY-6w-dLY" userLabel="MySection">
                                                         <rect key="frame" x="0.0" y="171" width="580" height="161"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-fR-dnr" userLabel="My Review Title">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-fR-dnr" userLabel="My Review Title">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="28"/>
                                                                 <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="17"/>
                                                                 <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sJ3-2e-jfz" userLabel="My Review Area" customClass="CustomTextView" customModule="Favourite_Films" customModuleProvider="target">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sJ3-2e-jfz" userLabel="My Review Area" customClass="CustomTextView" customModule="Favourite_Films" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="580" height="133"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="577" id="8yA-zb-fDj"/>
@@ -418,7 +418,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Wg8-rq-9ZH">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fJh-Ah-vaU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fJh-Ah-vaU">
                             <connections>
                                 <action selector="cancelTapped:" destination="4nV-8l-Uds" id="3qQ-q5-riK"/>
                             </connections>
@@ -481,6 +481,6 @@
         <image name="Star10" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dGh-Ji-Eqn"/>
+        <segue reference="tgu-Bw-rJE"/>
     </inferredMetricsTieBreakers>
 </document>
