@@ -16,6 +16,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     var films = [Film]()
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext // Get the 'managedObjectContext' property from the AppDelegate.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +47,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func fetchAndSetResults() {
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate // Get the AppDelegate.
-        let context = app.managedObjectContext // Get the 'managedObjectContext' property (the "data waiting room").
         let fetchRequest = NSFetchRequest(entityName: "Film") // Set up for an actual data fetch request for the specific entity.
         
         do {
@@ -59,6 +58,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - TableView Functions
+    
+    // Configure the table view cell, and make reusable.
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("FilmCell") as? FilmCell {
@@ -70,19 +71,36 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    // Define the number of sections in the table view.
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    // Define the number of rows in the table view.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return films.count
     }
     
+    // Tap the table view cell to view the film details.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let film = films[indexPath.row]
         performSegueWithIdentifier("goToDetailVCRead", sender: film)
     }
     
+    // Swipe a table view cell to edit or delete a film.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+
+            // Locate the film to delete (i.e. the swiped film).
+            let filmToDelete = films[indexPath.row]
+            // Delete the film from the managedObjectContext.
+            context.deleteObject(filmToDelete)
+            // Re-fetch the data from core data.
+            fetchAndSetResults()
+            // Remove the deleted row from the table.
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
     
     // MARK: - Actions
     @IBAction func loadDetailVC(sender: AnyObject!) {

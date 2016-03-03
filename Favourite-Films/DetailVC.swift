@@ -190,7 +190,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
             
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = app.managedObjectContext
-            let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)! // Create a new Film class.
+            let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)! // Create a new Film class in the managed context (waiting room).
             let film = Film(entity: entity, insertIntoManagedObjectContext: context)
             film.setFilmImage(image)
             film.title = title
