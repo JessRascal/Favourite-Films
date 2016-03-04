@@ -31,6 +31,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     var newRecord: Bool!
     var imagePicker: UIImagePickerController!
     var selectedFilm = Film?()
+    let placeholderImage = UIImage(named: "AddImagePlaceholder")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,9 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         titleField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
         urlField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
         
+        // Checks the image on the image button is changed (i.e. no longer the placeholder image).
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "formValidation", name: imageButtonImageChangedKey, object: nil)
+        
         // Checks if any of the star buttons have been tapped (via a notification from the 'StarRating' class).
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "formValidation", name: starButtonNotificationKey, object: nil)
         
@@ -73,6 +77,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     }
     
     // Validates that all fields for a new film have been populated.
+    // Disabling the save button is always called (unless all valid) to cover the scenario of a field being populated then the data being removed.
     func formValidation() {
         guard let title = titleField.text where title != "" else {
             //            print("The title field has not been populated.")
@@ -99,6 +104,10 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
             return
         }
         guard let myRatingIn = myStarView.rating where myRatingIn > 0 else {
+            disableSaveButton()
+            return
+        }
+        guard let filmImage = imageButton.imageView!.image where filmImage != placeholderImage else {
             disableSaveButton()
             return
         }
@@ -131,6 +140,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         imdbDesc.text = film.imdbDescription
         myReview.text = film.myReview
         setBackgroundImage(film.getFilmImage())
+        disableSaveButton()
     }
     
     // Edit mode for editing a film's details.
@@ -220,51 +230,44 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     @IBAction func saveTapped(sender: AnyObject) {
         if let image = imageButton.imageView?.image, title = titleField.text, url = urlField.text, imdbDesc = imdbDesc.text, myReview = myReview.text {
             
-            // Add in two paths for adding (current) and updating an existing record!!!!!!!!!!!!!!!!!!!!!!
+            // Create the managedObject constant.
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = app.managedObjectContext
             
-            // Saving a new record.
+            // Save a new record.
             if newRecord == true {
-            let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)! // Create a new Film entity in the managed context (waiting room).
-            let film = Film(entity: entity, insertIntoManagedObjectContext: context)
-            film.setFilmImage(image)
-            film.title = title
-            film.url = url
-            film.imdbRating = imdbStarView.rating
-            film.myRating = myStarView.rating
-            film.imdbDescription = imdbDesc
-            film.myReview = myReview
-            
-            context.insertObject(film)
-            } else {
-                // Updating an existing record.
-                let request = NSFetchRequest()
                 let entity = NSEntityDescription.entityForName("Film", inManagedObjectContext: context)!
-                request.entity = entity
-                do {
-                    let fetchedFilm = try context.executeFetchRequest(request)
-                    print("Made it here. Film: \(fetchedFilm)")
-                    //THIS IS CURRENTLY BRINGING ALL THE RECORDS BACK, NOT AN INDIVIDUAL ONE.
-                    //Update the film details here.
-//                    fetchedFilm.setFilmImage(image)
-//                    fetchedFilm.title = title
-//                    fetchedFilm.url = url
-//                    fetchedFilm.imdbRating = imdbStarView.rating
-//                    fetchedFilm.myRating = myStarView.rating
-//                    fetchedFilm.imdbDescription = imdbDesc
-//                    fetchedFilm.myReview = myReview
-                } catch {
-                    let err = error as NSError
-                    print("\(err)")
-                }
+                let film = Film(entity: entity, insertIntoManagedObjectContext: context) // Create a new Film entity in the managed context (waiting room).
+                // Set the film's values.
+                film.setFilmImage(image)
+                film.title = title
+                film.url = url
+                film.imdbRating = imdbStarView.rating
+                film.myRating = myStarView.rating
+                film.imdbDescription = imdbDesc
+                film.myReview = myReview
+                // Insert the new object in to core data.
+                context.insertObject(film)
+            } else {
+                // Update an existing record.
+                let film = selectedFilm!
+                // Update the film's details.
+                film.setFilmImage(image)
+                film.title = title
+                film.url = url
+                film.imdbRating = imdbStarView.rating
+                film.myRating = myStarView.rating
+                film.imdbDescription = imdbDesc
+                film.myReview = myReview
             }
-            
+            // Save the film's new/updated details to persistent data.
             do {
-                try context.save() // Save the data in the ManagedObject to core data.
+                try context.save()
             } catch {
-                print("Could not save film")
+                let err = error as NSError
+                print("The film's details could not be saved. Error: \(err)")
             }
+            // Pop the DetailVC to show the MainVC again.
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
