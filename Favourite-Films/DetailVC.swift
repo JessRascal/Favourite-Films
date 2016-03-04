@@ -111,7 +111,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
             disableSaveButton()
             return
         }
-        // If all of the above guard statements pass then...
+        // If all of the above guard statements pass then enable the 'Save' button.
             enableSaveButton()
     }
     
