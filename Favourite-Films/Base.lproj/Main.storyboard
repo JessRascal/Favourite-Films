@@ -47,7 +47,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="580" height="107"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderMoviePoster" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-KU-1Pb">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderMoviePoster" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-KU-1Pb">
                                                     <rect key="frame" x="0.0" y="0.0" width="580" height="107"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-03-idJ" userLabel="FilmTitlePanel">
@@ -156,13 +156,13 @@
                         <barButtonItem key="rightBarButtonItem" image="AddButton" id="77n-FG-pHI">
                             <color key="tintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="loadDetailVC:" destination="BYZ-38-t0r" id="mk8-px-xUD"/>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="YHT-yI-67W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="IZx-cj-Ygr" id="lmS-Wm-2Bj"/>
-                        <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCEdit" id="dGh-Ji-Eqn"/>
+                        <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCAdd" id="dGh-Ji-Eqn"/>
                         <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCRead" id="tgu-Bw-rJE"/>
                     </connections>
                 </viewController>
@@ -418,7 +418,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Wg8-rq-9ZH">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fJh-Ah-vaU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fJh-Ah-vaU">
                             <connections>
                                 <action selector="cancelTapped:" destination="4nV-8l-Uds" id="3qQ-q5-riK"/>
                             </connections>
@@ -481,6 +481,6 @@
         <image name="Star10" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dGh-Ji-Eqn"/>
+        <segue reference="tgu-Bw-rJE"/>
     </inferredMetricsTieBreakers>
 </document>
