@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Favourite-Films/CustomTextField.swift"
-            timestampString = "478647249.225197"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "awakeFromNib()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Favourite-Films/StarRating.swift"
             timestampString = "478634836.656319"
             startingColumnNumber = "9223372036854775807"
@@ -74,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478737922.752607"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "cancelTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/MainVC.swift"
-            timestampString = "478728434.233765"
+            timestampString = "478834086.874256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/FilmImageButton.swift"
-            timestampString = "478138557.323733"
+            timestampString = "478821108.262752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "FilmImageButton"
             landmarkType = "3">
          </BreakpointContent>
@@ -138,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478739222.784929"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "saveTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736276.090984"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "formValidation()"
             landmarkType = "5">
          </BreakpointContent>
@@ -200,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/MainVC.swift"
-            timestampString = "478728434.233765"
+            timestampString = "478834086.874256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736276.090984"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "setToReadOnlyMode()"
             landmarkType = "5">
          </BreakpointContent>
@@ -232,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/MainVC.swift"
-            timestampString = "478728434.233765"
+            timestampString = "478834086.874256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "tableView(_:commitEditingStyle:forRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -248,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478737922.752607"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "saveTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -264,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478737922.752607"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "cancelTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -279,28 +263,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Favourite-Films/MainVC.swift"
-            timestampString = "478731305.225371"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736276.090984"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "setToReadOnlyMode()"
             landmarkType = "5">
          </BreakpointContent>
@@ -312,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/MainVC.swift"
-            timestampString = "478731664.133226"
+            timestampString = "478834086.874256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "addButtonTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -327,28 +295,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Favourite-Films/MainVC.swift"
-            timestampString = "478731835.953528"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478739222.784929"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "saveTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478739412.297517"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "saveTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -376,11 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478737922.752607"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "cancelTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -392,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736276.090984"
+            timestampString = "478821586.991972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -404,15 +356,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736276.090984"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "formValidation()"
             landmarkType = "5">
          </BreakpointContent>
@@ -424,11 +376,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736951.115894"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "setToEditMode()"
             landmarkType = "5">
          </BreakpointContent>
@@ -440,7 +392,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736276.090984"
+            timestampString = "478877051.733049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "setToReadOnlyMode()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/DetailVC.swift"
+            timestampString = "478877051.733049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "setToEditMode()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/DetailVC.swift"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -456,44 +440,172 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478736276.090984"
+            timestampString = "478877051.733049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "setToEditMode()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478737100.358034"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "setToReadOnlyMode()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Favourite-Films/DetailVC.swift"
-            timestampString = "478737922.752607"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "setFormInteraction(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/DetailVC.swift"
+            timestampString = "478877051.733049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/FilmImageButton.swift"
+            timestampString = "478821212.773445"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "setImage(_:forState:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/DetailVC.swift"
+            timestampString = "478877051.733049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "formValidation()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/DetailVC.swift"
+            timestampString = "478877051.733049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "enableSaveButton()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/MainVC.swift"
+            timestampString = "478834086.874256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "urlButtonTapped(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/CustomTextField.swift"
+            timestampString = "478875995.294876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/DetailVC.swift"
+            timestampString = "478877051.733049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "formValidation()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/DetailVC.swift"
+            timestampString = "478877051.733049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "formValidation()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/UrlTextField.swift"
+            timestampString = "478877262.055311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "addPrefix()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Favourite-Films/UrlTextField.swift"
+            timestampString = "478877262.055311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "removePrefix()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

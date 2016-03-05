@@ -15,9 +15,9 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     // Nav bar buttons not set to weak so they stay in memory so they can be added back when editing.
     @IBOutlet var cancelButton: UIBarButtonItem!
     @IBOutlet var saveButton: UIBarButtonItem!
-    @IBOutlet weak var navTitle: UINavigationItem!
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var titleField: CustomTextField!
-    @IBOutlet weak var urlField: CustomTextField!
+    @IBOutlet weak var urlField: UrlTextField!
     @IBOutlet weak var imdbDesc: CustomTextView!
     @IBOutlet weak var myReview: CustomTextView!
     @IBOutlet weak var imdbStarView: StarRating!
@@ -54,9 +54,13 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         imdbDesc.delegate = self
         myReview.delegate = self
         
-        // Checks if the text fields have changed.
+        // Check if the text fields have changed then performs form validation.
         titleField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
         urlField.addTarget(self, action: "formValidation", forControlEvents: UIControlEvents.EditingChanged)
+        
+        // Add and remove the url prefix in the urlField as required.
+        urlField.addTarget(urlField, action: "addPrefix", forControlEvents: UIControlEvents.EditingDidBegin)
+        urlField.addTarget(urlField, action: "removePrefix", forControlEvents: UIControlEvents.EditingDidEnd)
         
         // Checks the image on the image button is changed (i.e. no longer the placeholder image).
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "formValidation", name: imageButtonImageChangedKey, object: nil)
@@ -279,5 +283,16 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     
     // URL button function (only displayed in read-only mode).
     @IBAction func urlButtonTapped(sender: AnyObject) {
+        performSegueWithIdentifier("goToWebView", sender: selectedFilm)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goToWebView" {
+            if let webViewVC = segue.destinationViewController as? WebViewVC {
+                let film = sender as? Film
+                webViewVC.incomingUrl = film!.url
+                webViewVC.navBar.title = "imdb.com"
+            }
+        }
     }
 }
