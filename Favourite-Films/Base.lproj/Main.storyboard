@@ -113,6 +113,9 @@
                                                     <state key="normal" title="View on IMDb.com">
                                                         <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="urlButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8g3-Yk-hfo"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,6 +167,7 @@
                         <outlet property="tableView" destination="IZx-cj-Ygr" id="lmS-Wm-2Bj"/>
                         <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCAdd" id="dGh-Ji-Eqn"/>
                         <segue destination="4nV-8l-Uds" kind="show" identifier="goToDetailVCRead" id="tgu-Bw-rJE"/>
+                        <segue destination="h5N-qt-uVP" kind="show" identifier="goToWebView" id="bHs-qr-Cqm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -235,7 +239,7 @@
                                                                         <fontDescription key="fontDescription" name="Catamaran-Regular" family="Catamaran" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Film's IMDb URL..." textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-Dg-HbN" userLabel="IMDbURLField" customClass="CustomTextField" customModule="Favourite_Films" customModuleProvider="target">
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Film's IMDb URL..." textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-Dg-HbN" userLabel="IMDbURLField" customClass="UrlTextField" customModule="Favourite_Films" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="35" width="438" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="aJe-Z2-0rz"/>
@@ -439,16 +443,51 @@
                         <outlet property="imdbStarView" destination="CTE-du-5W9" id="97O-gN-xIT"/>
                         <outlet property="myReview" destination="sJ3-2e-jfz" id="fHh-JA-KoB"/>
                         <outlet property="myStarView" destination="8Db-ad-cCI" id="JyP-5y-Far"/>
-                        <outlet property="navTitle" destination="Wg8-rq-9ZH" id="sDP-76-cj0"/>
+                        <outlet property="navBar" destination="Wg8-rq-9ZH" id="kKN-GZ-knb"/>
                         <outlet property="saveButton" destination="6Ft-xU-dxr" id="Pbj-zM-TgR"/>
                         <outlet property="titleField" destination="YdN-bN-a0g" id="2Ti-X6-PiT"/>
                         <outlet property="urlButton" destination="h3u-RJ-WaW" id="fK2-sb-64V"/>
                         <outlet property="urlField" destination="gBS-Dg-HbN" id="Ggo-d2-ycZ"/>
+                        <segue destination="h5N-qt-uVP" kind="show" identifier="goToWebView" id="3NH-Jo-hR9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBV-Qn-gNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2259" y="1139"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="mJz-7Y-uqk">
+            <objects>
+                <viewController id="h5N-qt-uVP" customClass="WebViewVC" customModule="Favourite_Films" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ER7-ao-vj9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Goy-YW-ySG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZVr-Em-RfY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jP-A0-RvM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6jP-A0-RvM" firstAttribute="top" secondItem="ZVr-Em-RfY" secondAttribute="top" id="8Xb-hQ-e6I"/>
+                            <constraint firstItem="6jP-A0-RvM" firstAttribute="leading" secondItem="ZVr-Em-RfY" secondAttribute="leading" id="RcY-UZ-zn0"/>
+                            <constraint firstAttribute="trailing" secondItem="6jP-A0-RvM" secondAttribute="trailing" id="gRc-mA-fBZ"/>
+                            <constraint firstAttribute="bottom" secondItem="6jP-A0-RvM" secondAttribute="bottom" id="xTN-wx-Npi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="ttx-Kc-Sii"/>
+                    <connections>
+                        <outlet property="container" destination="6jP-A0-RvM" id="skk-gG-YVs"/>
+                        <outlet property="navBar" destination="ttx-Kc-Sii" id="oTq-FD-r1M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qt-Q5-IC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831" y="1893"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Ic-Zi-uai">
@@ -481,6 +520,7 @@
         <image name="Star10" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tgu-Bw-rJE"/>
+        <segue reference="dGh-Ji-Eqn"/>
+        <segue reference="3NH-Jo-hR9"/>
     </inferredMetricsTieBreakers>
 </document>

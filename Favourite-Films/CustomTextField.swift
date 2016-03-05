@@ -16,6 +16,9 @@ class CustomTextField: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // Set the text colour.
+        self.textColor = UIColor.appSecondaryColor()
+        
         // Set the text field to just have a bottom border.
         border.borderColor = UIColor.appSecondaryColor().CGColor
         border.borderWidth = borderWidth

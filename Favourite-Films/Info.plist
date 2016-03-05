@@ -59,5 +59,10 @@
 		<string>Catamaran-SemiBold.ttf</string>
 		<string>Catamaran-Thin.ttf</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

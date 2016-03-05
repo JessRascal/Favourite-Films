@@ -46,6 +46,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.reloadData()
     }
     
+    // Load the persistent data in to the table view.
     func fetchAndSetResults() {
         let fetchRequest = NSFetchRequest(entityName: "Film") // Set up for an actual data fetch request for the specific entity.
         
@@ -107,21 +108,65 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegueWithIdentifier("goToDetailVCAdd", sender: nil)
     }
     
+    @IBAction func urlButtonTapped(sender: AnyObject) {
+        // Get the IndexPath of the cell that that button is in.
+        var cellIndexPath: NSIndexPath!
+        if let button = sender as? UIButton {
+            if let view = button.superview {
+                if let cell = view.superview as? FilmCell {
+                    cellIndexPath = tableView.indexPathForCell(cell)
+                }
+            }
+        }
+        let film = films[cellIndexPath.row]
+        
+        performSegueWithIdentifier("goToWebView", sender: film) // WILL NEED TO PASS FILM'S URL.
+    }
+    
+    // MARK: - Segue Preparation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goToDetailVCAdd" {
             if let detailVC = segue.destinationViewController as? DetailVC {
-                detailVC.navTitle.title = "Add a Film"
+                detailVC.navBar.title = "Add a Film"
                 detailVC.newRecord = true
             }
         }
         
         if segue.identifier == "goToDetailVCRead" {
             if let detailVC = segue.destinationViewController as? DetailVC {
-                detailVC.navTitle.title = "Film Details"
-                detailVC.newRecord = false
                 detailVC.selectedFilm = sender as? Film
+                detailVC.navBar.title = "Film Details"
+                detailVC.newRecord = false
+            }
+        }
+        
+        if segue.identifier == "goToWebView" {
+            if let webViewVC = segue.destinationViewController as? WebViewVC {
+                if let film = sender as? Film {
+                    webViewVC.navBar.title = "imdb.com"
+                    webViewVC.incomingUrl = film.url
+                }
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
