@@ -25,10 +25,9 @@ class FilmCell: UITableViewCell {
     }
     
     func configureCell(film: Film) {
-        titleLabel.text = film.title
-        imdbStarImage.image = UIImage(named: "Star\(Int(film.imdbRating!))")
-        myStarImage.image = UIImage(named: "Star\(Int(film.myRating!))")
-        filmImage.image = film.getFilmImage()
+        self.titleLabel.text = film.title
+        self.imdbStarImage.image = UIImage(named: "Star\(Int(film.imdbRating!))")
+        self.myStarImage.image = UIImage(named: "Star\(Int(film.myRating!))")
+        self.filmImage.image = film.getFilmImage()
     }
-
 }
