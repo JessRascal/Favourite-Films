@@ -16,6 +16,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     var films = [Film]()
+    var imageCache = [Int:UIImage]()
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext // Get the 'managedObjectContext' property from the AppDelegate.
     
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         imageView.bounds.size.height = 30
         navigationItem.titleView = imageView
         navigationItem.titleView!.contentMode = .ScaleAspectFit
-        // Blank button added to the left of the Nav Bar to keep the logo centred (a bit hacky).
+        // Blank button added to the left of the Nav Bar to keep the logo centred (a bit hacky but works).
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
         navigationItem.leftBarButtonItem?.enabled = false
         
@@ -37,16 +38,16 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.estimatedRowHeight = 107.0
+//        tableView.estimatedRowHeight = 107.0
     }
     
     // MARK: - Functions
     override func viewDidAppear(animated: Bool) {
-        fetchAndSetResults()
-        tableView.reloadData()
+        self.fetchAndSetResults()
+        self.tableView.reloadData()
     }
     
-    // Load the persistent data in to the table view.
+    // Fetch the films from persistent data.
     func fetchAndSetResults() {
         let fetchRequest = NSFetchRequest(entityName: "Film") // Set up for an actual data fetch request for the specific entity.
         
@@ -62,8 +63,13 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Configure the table view cell, and make reusable.
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         if let cell = tableView.dequeueReusableCellWithIdentifier("FilmCell") as? FilmCell {
+            // Set all the table cell details to the defaults.
+            cell.filmImage.image = nil
+            cell.titleLabel.text = ""
+            cell.imdbStarImage.image = UIImage(named: "Star0")
+            cell.myStarImage.image = UIImage(named: "Star0")
+            
             let film = films[indexPath.row]
             cell.configureCell(film)
             return cell
@@ -80,6 +86,11 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // Define the number of rows in the table view.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return films.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return 107.0;
     }
     
     // Tap the table view cell to view the film details.
@@ -120,7 +131,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         let film = films[cellIndexPath.row]
         
-        performSegueWithIdentifier("goToWebView", sender: film) // WILL NEED TO PASS FILM'S URL.
+        performSegueWithIdentifier("goToWebView", sender: film)
     }
     
     // MARK: - Segue Preparation
