@@ -12,7 +12,7 @@ import CoreData
 class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Outlets
-    // Nav bar buttons not set to weak so they stay in memory so they can be added back when editing.
+    // Nav bar buttons not set to 'weak' so they remain in memory for when they need to be re-used.
     @IBOutlet var cancelButton: UIBarButtonItem!
     @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationItem!
@@ -41,7 +41,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
             setToReadOnlyMode()
         }
         
-        // Checks for taps on the VC from the user.
+        // Checks for taps on the VC from the user for dismissing the keyboard.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
@@ -62,7 +62,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         urlField.addTarget(urlField, action: "addPrefix", forControlEvents: UIControlEvents.EditingDidBegin)
         urlField.addTarget(urlField, action: "removePrefix", forControlEvents: UIControlEvents.EditingDidEnd)
         
-        // Checks the image on the image button is changed (i.e. no longer the placeholder image).
+        // Checks the image on the image button has been changed (i.e. no longer the placeholder image).
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "formValidation", name: imageButtonImageChangedKey, object: nil)
         
         // Checks if any of the star buttons have been tapped (via a notification from the 'StarRating' class).
@@ -83,58 +83,61 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     // Validates that all fields for a new film have been populated.
     // Disabling the save button is always called (unless all valid) to cover the scenario of a field being populated then the data being removed.
     func formValidation() {
+        // Checks the title field isn't blank.
         guard let title = titleField.text where title != "" else {
-            //            print("The title field has not been populated.")
             disableSaveButton()
             return
         }
+        // Checks the url field isn't blank.
         guard let url = urlField.text where url != "" else {
-            //            print("The URL field has not been populated.")
             disableSaveButton()
             return
         }
+        // Checks the url field doesn't only contain the prefix text.
+        guard let url2 = urlField.text where url2 != "http://" else {
+            disableSaveButton()
+            return
+        }
+        // Checks the IMDb descirption field isn't blank.
         guard let imdbDescIn = imdbDesc.text where imdbDescIn != "" else {
-            //            print("The description view has not been populated.")
             disableSaveButton()
             return
         }
+        // Checks the review field isn't blank.
         guard let myReviewIn = myReview.text where myReviewIn != "" else {
-            //            print("The review field has not been populated.")
             disableSaveButton()
             return
         }
+        // Checks the IMDb rating isn't zero.
         guard let imdbRatingIn = imdbStarView.rating where imdbRatingIn > 0 else {
             disableSaveButton()
             return
         }
+        // Checks the my rating isn't zero.
         guard let myRatingIn = myStarView.rating where myRatingIn > 0 else {
             disableSaveButton()
             return
         }
+        // Checks the film image isn't still the placeholder image.
         guard let filmImage = imageButton.imageView!.image where filmImage != placeholderImage else {
             disableSaveButton()
             return
         }
         // If all of the above guard statements pass then enable the 'Save' button.
-            enableSaveButton()
+        enableSaveButton()
     }
     
     
     // MARK: - Functions
     
-    // Calls this function when a tap is recognized anywhere in a view.
-    func dismissKeyboard() {
-        // Causes the view (or one of its embedded text fields/views) to resign the first responder status.
-        view.endEditing(true)
-    }
-    
-    // Read Only Mode - disables user interaction on everything and populate the views with the passed in film data.
+    // Read Only Mode - disables user interaction on everything and populates the views with the passed in film data.
     func setToReadOnlyMode() {
         let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "setToEditMode")
         navigationItem.setLeftBarButtonItem(nil, animated: true)
         navigationItem.setRightBarButtonItem(editButton, animated: true)
         setFormInteraction(false)
         
+        // Populate the views with the film data.
         let film = selectedFilm!
         imageButton.setImage(film.getFilmImage(), forState: .Normal)
         titleField.text = film.title
@@ -147,14 +150,14 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         disableSaveButton()
     }
     
-    // Edit mode for editing a film's details.
+    // Edit Mode - enables user interation on all the fields.
     func setToEditMode() {
         navigationItem.setLeftBarButtonItem(cancelButton, animated: true)
         navigationItem.setRightBarButtonItem(saveButton, animated: true)
         setFormInteraction(true)
     }
     
-    // Set the form field interaction status (editable true = Add/Edit Mode, editable false = Read Only Mode).
+    // Sets the form field interaction status (editable true = Add/Edit Mode, editable false = Read Only Mode).
     func setFormInteraction(editable: Bool) {
         titleField.userInteractionEnabled = editable
         urlField.userInteractionEnabled = editable
@@ -163,7 +166,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         imdbDesc.userInteractionEnabled = editable
         myReview.userInteractionEnabled = editable
         imageButton.userInteractionEnabled = editable
-        // Broken out like this to make the transition smoother based on what appears when.
+        // Broken out like this to make the transition a bit smoother due to the order of appearance.
         if editable == true {
             urlField.hidden = !editable
             urlButton.hidden = editable
@@ -173,16 +176,22 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         }
     }
     
-    // Set the background image if there's one to display.
+    // Sets the background image.
     func setBackgroundImage(imageIn: UIImage?) {
         if let image = imageIn {
-        bgImage.image = image
-        bgImage.hidden = false
-        bgView.backgroundColor = UIColor.transparentBlack()
+            bgImage.image = image
+            bgImage.hidden = false
+            bgView.backgroundColor = UIColor.transparentBlack()
         } else {
             bgImage.hidden = true
             bgView.backgroundColor = UIColor.appPrimaryColor()
         }
+    }
+    
+    // Dismiss the keyboard when the user taps out of the active view.
+    func dismissKeyboard() {
+        // Causes the view (or one of its embedded text fields/views) to resign the first responder status.
+        view.endEditing(true)
     }
     
     // Run when the user selects an image from the image picker.
@@ -286,6 +295,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         performSegueWithIdentifier("goToWebView", sender: selectedFilm)
     }
     
+    // Segue preparation for displying the WKWebView.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goToWebView" {
             if let webViewVC = segue.destinationViewController as? WebViewVC {

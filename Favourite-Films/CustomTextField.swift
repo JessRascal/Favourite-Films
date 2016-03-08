@@ -25,8 +25,9 @@ class CustomTextField: UITextField {
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
         
-        // Set the placeholder text colour.
-        self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string, attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor()])
+        // Set the placeholder text colour and font.
+        let placeholderFont = UIFont(name: (self.font?.fontName)!, size: 18.0)!
+        self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string, attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor(), NSFontAttributeName: placeholderFont])
     }
     
     override func layoutSubviews() {

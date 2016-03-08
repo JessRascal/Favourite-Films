@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +18,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var films = [Film]()
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext // Get the 'managedObjectContext' property from the AppDelegate.
     
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +29,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         imageView.bounds.size.height = 30
         navigationItem.titleView = imageView
         navigationItem.titleView!.contentMode = .ScaleAspectFit
-        // Blank button added to the left of the Nav Bar to keep the logo centred (a bit hacky).
+        
+        // Blank button added to the left of the Nav Bar to keep the logo centred (a bit hacky but it works).
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
         navigationItem.leftBarButtonItem?.enabled = false
         
@@ -40,19 +42,18 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.estimatedRowHeight = 107.0
     }
     
-    // MARK: - Functions
     override func viewDidAppear(animated: Bool) {
         fetchAndSetResults()
         tableView.reloadData()
     }
     
-    // Load the persistent data in to the table view.
+    // Retriveve the film data from core data.
     func fetchAndSetResults() {
-        let fetchRequest = NSFetchRequest(entityName: "Film") // Set up for an actual data fetch request for the specific entity.
+        let fetchRequest = NSFetchRequest(entityName: "Film") // Set up for an actual data fetch request for the specified entity name.
         
         do {
             let results = try context.executeFetchRequest(fetchRequest) // Try to perform the actual fetch request and catch the error if it fails.
-            self.films = results as! [Film]
+            self.films = results as! [Film] // Pass the fetched films in to the films array.
         } catch let err as NSError {
             print(err.debugDescription)
         }
@@ -62,7 +63,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Configure the table view cell, and make reusable.
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         if let cell = tableView.dequeueReusableCellWithIdentifier("FilmCell") as? FilmCell {
             let film = films[indexPath.row]
             cell.configureCell(film)
@@ -91,7 +91,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // Swipe a table view cell to edit or delete a film.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-
+            
             // Locate the film to delete (i.e. the swiped film).
             let filmToDelete = films[indexPath.row]
             // Delete the film from the managedObjectContext.
@@ -150,23 +150,3 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

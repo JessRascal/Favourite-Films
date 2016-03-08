@@ -12,16 +12,12 @@ class FilmCell: UITableViewCell {
 
     @IBOutlet weak var filmImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    //@IBOutlet weak var filmUrl: UIButton!
     @IBOutlet weak var imdbStarImage: UIImageView!
     @IBOutlet weak var myStarImage: UIImageView!
-    //@IBOutlet weak var imdbDesc: UILabel!
-    //@IBOutlet weak var myReview: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        titleLabel.tintColor = UIColor.appSecondaryColor()
+        self.selectionStyle = UITableViewCellSelectionStyle.None
     }
     
     func configureCell(film: Film) {

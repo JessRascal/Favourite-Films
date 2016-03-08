@@ -12,7 +12,7 @@ let starButtonNotificationKey = "starButtonNotificationKey"
 
 class StarRating: UIView {
     
-    // MARK: Properties
+    // MARK: - Properties
     var rating: Int? {
         didSet {
             setNeedsLayout()
@@ -22,7 +22,7 @@ class StarRating: UIView {
     let buttonSpacing = 5
     let numberOfStars = 10
     
-    // MARK: Initialization
+    // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -46,6 +46,7 @@ class StarRating: UIView {
         }
     }
     
+    //MARK: - Functions
     override func layoutSubviews() {
         let buttonSize: Int
         
@@ -68,7 +69,7 @@ class StarRating: UIView {
         updateButtonSelectedStates()
     }
     
-    // MARK: Button Action
+    // MARK: - Button Action
     func starButtonTapped(button: UIButton) {
         rating = starButtons.indexOf(button)!+1
         // Post a notification when the rating is updated (used for form validation in DetailVC).

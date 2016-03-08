@@ -14,7 +14,6 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var navBar: UINavigationItem!
     
-    
     var webView: WKWebView!
     var incomingUrl: String!
     
@@ -33,6 +32,7 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         loadWebRequest(incomingUrl)
     }
     
+    // Load the requested URL in to the WKWebView.
     func loadWebRequest(urlString: String) {
         let urlStr = urlString
         let url = NSURL(string: urlStr)!
@@ -46,6 +46,7 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     
+    // Remove the loading indictor from the status bar when the requested page has loaded.
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
