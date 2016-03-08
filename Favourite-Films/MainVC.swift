@@ -33,7 +33,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Blank button added to the left of the Nav Bar to keep the logo centred (a bit hacky but it works).
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
         navigationItem.leftBarButtonItem?.enabled = false
-        
+       
         // Set the text of the default 'Back' button (no text, just the arrow).
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
