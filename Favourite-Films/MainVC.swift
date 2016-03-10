@@ -16,6 +16,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     var films = [Film]()
+//    var filmImageCache = [UIImage]()
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext // Get the 'managedObjectContext' property from the AppDelegate.
     
     // MARK: - Functions
@@ -33,18 +34,28 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Blank button added to the left of the Nav Bar to keep the logo centred (a bit hacky but it works).
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
         navigationItem.leftBarButtonItem?.enabled = false
-       
+        
         // Set the text of the default 'Back' button (no text, just the arrow).
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         tableView.dataSource = self
         tableView.delegate = self
         tableView.estimatedRowHeight = 107.0
+        
+        // Allows touches on the button in FilmCell to highlight correctly.
+        tableView.delaysContentTouches = false
+        for view in tableView.subviews {
+            if view is UIScrollView {
+                (view as? UIScrollView)!.delaysContentTouches = false
+                break
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
-        fetchAndSetResults()
-        tableView.reloadData()
+        self.fetchAndSetResults()
+        self.tableView.reloadData()
+        
     }
     
     // Retriveve the film data from core data.
@@ -65,7 +76,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("FilmCell") as? FilmCell {
             let film = films[indexPath.row]
-            cell.configureCell(film)
+            if indexPath.row < GlobalVars.filmImageCache.count {
+                let img = GlobalVars.filmImageCache[indexPath.row]
+                cell.configureCell(film, cachedImage: img)
+            } else {
+                cell.configureCell(film, cachedImage: nil)
+                // Save the fetched film image to the cache.
+                GlobalVars.filmImageCache[indexPath.row] = cell.filmImage.image
+            }
             return cell
         } else {
             return FilmCell()
@@ -88,14 +106,15 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegueWithIdentifier("goToDetailVCRead", sender: film)
     }
     
-    // Swipe a table view cell to edit or delete a film.
+    // Swipe a table view cell to delete a film.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            
             // Locate the film to delete (i.e. the swiped film).
             let filmToDelete = films[indexPath.row]
             // Delete the film from the managedObjectContext.
             context.deleteObject(filmToDelete)
+            // Remove the film's image from the image cache.
+            GlobalVars.filmImageCache.removeValueForKey(indexPath.row)
             // Re-fetch the data from core data.
             fetchAndSetResults()
             // Remove the deleted row from the table.
@@ -120,7 +139,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         let film = films[cellIndexPath.row]
         
-        performSegueWithIdentifier("goToWebView", sender: film) // WILL NEED TO PASS FILM'S URL.
+        performSegueWithIdentifier("goToWebView", sender: film)
     }
     
     // MARK: - Segue Preparation

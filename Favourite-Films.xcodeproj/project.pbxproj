@@ -19,11 +19,13 @@
 		C807F5101C7AFBF100B44A8A /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C84B665F1C79377A00FB25ED /* Catamaran-Thin.ttf */; };
 		C876882E1C8A5B370097AFCD /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876882D1C8A5B370097AFCD /* WebViewVC.swift */; };
 		C87688301C8A72730097AFCD /* UrlTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876882F1C8A72730097AFCD /* UrlTextField.swift */; };
+		C87688361C90A16E0097AFCD /* IMDbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87688351C90A16E0097AFCD /* IMDbButton.swift */; };
+		C87688381C90B6530097AFCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87688371C90B6530097AFCD /* Assets.xcassets */; };
+		C876883A1C9218700097AFCD /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87688391C9218700097AFCD /* GlobalVars.swift */; };
 		C8AAB2FC1C789F1E00376ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB2FB1C789F1E00376ED0 /* AppDelegate.swift */; };
 		C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */; };
 		C8AAB3011C789F1E00376ED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB2FF1C789F1E00376ED0 /* Main.storyboard */; };
 		C8AAB3041C789F1E00376ED0 /* Favourite_Films.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8AAB3021C789F1E00376ED0 /* Favourite_Films.xcdatamodeld */; };
-		C8AAB3061C789F1E00376ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB3051C789F1E00376ED0 /* Assets.xcassets */; };
 		C8AAB3091C789F1E00376ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AAB3071C789F1E00376ED0 /* LaunchScreen.storyboard */; };
 		C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2C2BB1C791E100030F279 /* DetailVC.swift */; };
 		C8E41B211C7B7AE5009ABB0E /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E41B201C7B7AE5009ABB0E /* StarRating.swift */; };
@@ -49,12 +51,14 @@
 		C84B665F1C79377A00FB25ED /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
 		C876882D1C8A5B370097AFCD /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		C876882F1C8A72730097AFCD /* UrlTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlTextField.swift; sourceTree = "<group>"; };
+		C87688351C90A16E0097AFCD /* IMDbButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDbButton.swift; sourceTree = "<group>"; };
+		C87688371C90B6530097AFCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C87688391C9218700097AFCD /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		C8AAB2F81C789F1E00376ED0 /* Favourite-Films.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favourite-Films.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AAB2FB1C789F1E00376ED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8AAB2FD1C789F1E00376ED0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		C8AAB3001C789F1E00376ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8AAB3031C789F1E00376ED0 /* Favourite_Films.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favourite_Films.xcdatamodel; sourceTree = "<group>"; };
-		C8AAB3051C789F1E00376ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8AAB3081C789F1E00376ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8AAB30A1C789F1E00376ED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8C2C2BB1C791E100030F279 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
@@ -119,7 +123,7 @@
 				C8C2C2B71C7918BD0030F279 /* View */,
 				C8C2C2B81C7918C30030F279 /* Controller */,
 				C8AAB2FB1C789F1E00376ED0 /* AppDelegate.swift */,
-				C8AAB3051C789F1E00376ED0 /* Assets.xcassets */,
+				C87688371C90B6530097AFCD /* Assets.xcassets */,
 				C8AAB30A1C789F1E00376ED0 /* Info.plist */,
 				C8AAB3021C789F1E00376ED0 /* Favourite_Films.xcdatamodeld */,
 			);
@@ -131,6 +135,7 @@
 			children = (
 				C8E41B591C865684009ABB0E /* Film+CoreDataProperties.swift */,
 				C8E41B5A1C865684009ABB0E /* Film.swift */,
+				C87688391C9218700097AFCD /* GlobalVars.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				C8E41B201C7B7AE5009ABB0E /* StarRating.swift */,
 				C8E41B4E1C86157E009ABB0E /* ButtonWithBorder.swift */,
 				C876882F1C8A72730097AFCD /* UrlTextField.swift */,
+				C87688351C90A16E0097AFCD /* IMDbButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -234,11 +240,11 @@
 				C8AAB3091C789F1E00376ED0 /* LaunchScreen.storyboard in Resources */,
 				C807F5081C7AFBD800B44A8A /* Catamaran-Black.ttf in Resources */,
 				C807F5091C7AFBDC00B44A8A /* Catamaran-Bold.ttf in Resources */,
-				C8AAB3061C789F1E00376ED0 /* Assets.xcassets in Resources */,
 				C807F50C1C7AFBE500B44A8A /* Catamaran-Light.ttf in Resources */,
 				C8AAB3011C789F1E00376ED0 /* Main.storyboard in Resources */,
 				C807F50A1C7AFBDF00B44A8A /* Catamaran-ExtraBold.ttf in Resources */,
 				C807F50D1C7AFBE800B44A8A /* Catamaran-Medium.ttf in Resources */,
+				C87688381C90B6530097AFCD /* Assets.xcassets in Resources */,
 				C807F50B1C7AFBE200B44A8A /* Catamaran-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +259,7 @@
 				C8C2C2BC1C791E100030F279 /* DetailVC.swift in Sources */,
 				C8AAB2FE1C789F1E00376ED0 /* MainVC.swift in Sources */,
 				C8E41B451C7E2AAE009ABB0E /* FilmImageButton.swift in Sources */,
+				C87688361C90A16E0097AFCD /* IMDbButton.swift in Sources */,
 				C8E41B5B1C865684009ABB0E /* Film+CoreDataProperties.swift in Sources */,
 				C8E41B211C7B7AE5009ABB0E /* StarRating.swift in Sources */,
 				C8AAB3041C789F1E00376ED0 /* Favourite_Films.xcdatamodeld in Sources */,
@@ -263,6 +270,7 @@
 				C807F5071C7A648D00B44A8A /* CustomTextField.swift in Sources */,
 				C876882E1C8A5B370097AFCD /* WebViewVC.swift in Sources */,
 				C8E41B4F1C86157E009ABB0E /* ButtonWithBorder.swift in Sources */,
+				C876883A1C9218700097AFCD /* GlobalVars.swift in Sources */,
 				C8E41B251C7D0722009ABB0E /* UIColorExtension.swift in Sources */,
 				C8E41B4A1C7FBA0C009ABB0E /* FilmCell.swift in Sources */,
 			);

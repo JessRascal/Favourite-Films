@@ -9,7 +9,7 @@
 import UIKit
 
 class FilmCell: UITableViewCell {
-
+    
     @IBOutlet weak var filmImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imdbStarImage: UIImageView!
@@ -20,11 +20,14 @@ class FilmCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.None
     }
     
-    func configureCell(film: Film) {
+    func configureCell(film: Film, cachedImage: UIImage?) {
         titleLabel.text = film.title
         imdbStarImage.image = UIImage(named: "Star\(Int(film.imdbRating!))")
         myStarImage.image = UIImage(named: "Star\(Int(film.myRating!))")
-        filmImage.image = film.getFilmImage()
+        if let img = cachedImage {
+            filmImage.image = img
+        } else {
+            self.filmImage.image = film.getFilmImage()
+        }
     }
-
 }
