@@ -285,6 +285,7 @@
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTE-du-5W9" userLabel="StarsViewIMDb" customClass="StarRating" customModule="Favourite_Films" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="26" width="438" height="30"/>
+                                                                        <color key="backgroundColor" red="1" green="0.1860038494" blue="0.34031434970000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="Rgw-OD-3c8"/>
                                                                         </constraints>
@@ -309,6 +310,7 @@
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Db-ad-cCI" userLabel="StarsViewMy" customClass="StarRating" customModule="Favourite_Films" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="26" width="438" height="30"/>
+                                                                        <color key="backgroundColor" red="1" green="0.1860038494" blue="0.34031434970000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="6gC-P4-XBf"/>
                                                                         </constraints>

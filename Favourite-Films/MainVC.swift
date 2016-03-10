@@ -55,7 +55,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidAppear(animated: Bool) {
         self.fetchAndSetResults()
         self.tableView.reloadData()
-        
     }
     
     // Retriveve the film data from core data.
@@ -113,6 +112,13 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let filmToDelete = films[indexPath.row]
             // Delete the film from the managedObjectContext.
             context.deleteObject(filmToDelete)
+            // Save the updated context.
+            do {
+                try context.save()
+            } catch {
+                let err = error as NSError
+                print("The film's details could not be saved. Error: \(err)")
+            }
             // Remove the film's image from the image cache.
             GlobalVars.filmImageCache.removeValueForKey(indexPath.row)
             // Re-fetch the data from core data.
