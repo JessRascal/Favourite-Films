@@ -12,6 +12,8 @@ class CustomTextView: UITextView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Set the text colour.
+        self.textColor = UIColor.appSecondaryColor()
         textAlignment = NSTextAlignment.Justified
         layer.borderWidth = 1.0
         layer.borderColor = UIColor.appSecondaryColor().CGColor

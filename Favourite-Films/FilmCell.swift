@@ -9,24 +9,25 @@
 import UIKit
 
 class FilmCell: UITableViewCell {
-
+    
     @IBOutlet weak var filmImage: UIImageView!
-    @IBOutlet weak var filmTitle: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imdbStarImage: UIImageView!
+    @IBOutlet weak var myStarImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = UITableViewCellSelectionStyle.None
     }
-
-//    override func setSelected(selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
     
-    func configureCell(image: UIImage, text: String) {
-        filmImage.image = image
-        filmTitle.text = text
+    func configureCell(film: Film, cachedImage: UIImage?) {
+        titleLabel.text = film.title
+        imdbStarImage.image = UIImage(named: "Star\(Int(film.imdbRating!))")
+        myStarImage.image = UIImage(named: "Star\(Int(film.myRating!))")
+        if let img = cachedImage {
+            filmImage.image = img
+        } else {
+            self.filmImage.image = film.getFilmImage()
+        }
     }
-
 }
