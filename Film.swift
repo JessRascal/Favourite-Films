@@ -11,9 +11,7 @@ import UIKit
 
 
 class Film: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-
+    
     func setFilmImage(image: UIImage) {
         let data = UIImagePNGRepresentation(image)
         self.image = data

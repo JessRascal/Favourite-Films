@@ -23,6 +23,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     @IBOutlet weak var imdbStarView: StarRating!
     @IBOutlet weak var myStarView: StarRating!
     @IBOutlet weak var urlButton: ButtonWithBorder!
+    @IBOutlet weak var urlButtonSV: UIStackView!
     @IBOutlet weak var imageButton: FilmImageButton!
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var bgView: UIView!
@@ -166,14 +167,8 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
         imdbDesc.userInteractionEnabled = editable
         myReview.userInteractionEnabled = editable
         imageButton.userInteractionEnabled = editable
-        // Broken out like this to make the transition a bit smoother due to the order of appearance.
-        if editable == true {
-            urlField.hidden = !editable
-            urlButton.hidden = editable
-        } else {
-            urlButton.hidden = editable
-            urlField.hidden = !editable
-        }
+        urlButtonSV.hidden = editable
+        urlField.hidden = !editable
     }
     
     // Sets the background image.
@@ -241,7 +236,7 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
     
     // Save button function.
     @IBAction func saveTapped(sender: AnyObject) {
-        if let image = imageButton.imageView?.image, title = titleField.text, url = urlField.text, imdbDesc = imdbDesc.text, myReview = myReview.text {
+        if let image = imageButton.imageView?.image, title = titleField.text, url = urlField.text, imdbDesc = imdbDesc.text, myReview = myReview.text { // ADD RATINGS????????????
             
             // Create the managedObject constant.
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -280,6 +275,8 @@ class DetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIIma
                 let err = error as NSError
                 print("The film's details could not be saved. Error: \(err)")
             }
+            // Clear the film image cache so it's recreated on returning to the MainVC to reflect any changes.
+            GlobalVars.filmImageCache.removeAll()
             // Pop the DetailVC to show the MainVC again.
             self.navigationController?.popViewControllerAnimated(true)
         }
